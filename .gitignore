@@ -1,7 +1,38 @@
+# Quarto
 _site/
+.quarto/
+/.quarto/
+
+# Build outputs
+*.aux
+*.log
+*.out
+
+# Private/Internal files - НЕ публикуются
+_internal/
+_private/
+internal/
+exam/
+*_internal.*
+*_solution.*
+*_answers.*
+*_shuffle.*
+*_solver.*
+*_grading.*
+
+# Personal files
+*.xlsx
+*.xls
+*.docx
+*.doc
+
+# OS
+.DS_Store
+*.DS_Store
+**/.DS_store
+Thumbs.db
+
+# Legacy Jekyll (если остались)
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-.DS_Store
-.quarto/
-/.quarto/

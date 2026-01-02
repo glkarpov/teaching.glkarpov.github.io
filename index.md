@@ -10,11 +10,7 @@ Welcome to my teaching materials repository. Here you can find materials from my
 
 These courses are currently being taught and materials are updated regularly:
 
-- **[HSE BI Probability and Mathematical Statistics 2025](https://glkarpov.github.io/ptms_bi_hse_25)**
-  - Course for Business Informatics students
-
-- **[HSE FCS Linear Algebra 2025](https://glkarpov.github.io/linalg_mds_25)**
-  - Course for Master of Data Science program, Faculty of Computer Science
+*No active courses at the moment.*
 
 ## Archive
 
