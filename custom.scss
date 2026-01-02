@@ -1,17 +1,155 @@
 /*-- scss:defaults --*/
 
-// custom variables
-$teaching-primary: #2563eb;
-$teaching-secondary: #64748b;
+// Custom color palette
+$teaching-primary: #6366f1;      // Indigo
+$teaching-secondary: #8b5cf6;    // Purple
+$teaching-accent: #ec4899;        // Pink
+$teaching-success: #10b981;      // Emerald
+$teaching-info: #3b82f6;         // Blue
+$teaching-warning: #f59e0b;      // Amber
+
+// Bootstrap theme colors override
+$primary: $teaching-primary;
+$secondary: $teaching-secondary;
+$success: $teaching-success;
+$info: $teaching-info;
+$warning: $teaching-warning;
+$danger: $teaching-accent;
+
+// Background colors
+$body-bg: #f8fafc;
+$body-color: #1e293b;
+$code-bg: #f1f5f9;
+
+// Link colors
+$link-color: $teaching-primary;
+$link-hover-color: $teaching-secondary;
+
+// Border radius
+$border-radius: 0.75rem;
+$border-radius-sm: 0.5rem;
+$border-radius-lg: 1rem;
 
 /*-- scss:rules --*/
 
-// navigation
-.navbar-brand {
-  font-weight: 600;
+// Body background with subtle gradient
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
 }
 
-// content customization
+// Navigation customization
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid $teaching-primary;
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, $teaching-primary 0%, $teaching-secondary 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: $teaching-primary !important;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Main content area
 .main-content {
   max-width: 1200px;
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  margin: 2rem auto;
+}
+
+// Headings with gradient
+h1 {
+  background: linear-gradient(135deg, $teaching-primary 0%, $teaching-secondary 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  color: $teaching-primary;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba($teaching-primary, 0.2);
+}
+
+// Links
+a {
+  color: $teaching-primary;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: $teaching-secondary;
+    text-decoration: underline;
+  }
+}
+
+// Lists with better styling
+ul, ol {
+  li {
+    margin-bottom: 0.5rem;
+    
+    &::marker {
+      color: $teaching-primary;
+    }
+  }
+}
+
+// Cards/sections
+section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba($teaching-primary, 0.05) 0%, rgba($teaching-secondary, 0.05) 100%);
+  border-radius: $border-radius;
+  border-left: 4px solid $teaching-primary;
+}
+
+// Code blocks
+pre {
+  background: $code-bg;
+  border-radius: $border-radius;
+  border-left: 4px solid $teaching-primary;
+}
+
+// Buttons and interactive elements
+.btn-primary {
+  background: linear-gradient(135deg, $teaching-primary 0%, $teaching-secondary 100%);
+  border: none;
+  border-radius: $border-radius;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($teaching-primary, 0.4);
+  }
+}
+
+// Sidebar customization
+.sidebar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-right: 2px solid rgba($teaching-primary, 0.1);
 }
