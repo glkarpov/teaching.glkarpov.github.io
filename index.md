@@ -16,7 +16,12 @@ These courses are currently being taught and materials are updated regularly:
 
 ## Archive
 
-For past courses and materials, see the [Archive](archive.md) page.
+Recent past courses:
+
+- **[Linear Algebra 2025](archive/linalg_mds_25/index.md)** - HSE FCS
+- **[Probability and Mathematical Statistics 2025](archive/ptms_bi_hse_25/index.md)** - HSE BI
+
+For all past courses and materials, see the [Archive](archive.md) page.
 
 ## Shared Materials
 
