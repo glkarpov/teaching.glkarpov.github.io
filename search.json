@@ -4,28 +4,28 @@
     "href": "index.html",
     "title": "Teaching Activity",
     "section": "",
-    "text": "Welcome to my teaching materials repository. Here you can find materials from my courses at HSE University.\n\n\nThese courses are currently being taught and materials are updated regularly:\n\nProbability Theory and Mathematical Statistics (HSE FCS 26) - HSE FCS\n\n\n\n\nFor past courses and materials, see the Archive page.\n\n\n\n\nMathematical Statistics Shared Materials\nProbability Theory Shared Materials"
+    "text": "Welcome to my teaching materials repository. Here you can find materials from my courses at HSE University."
   },
   {
     "objectID": "index.html#currently-active-courses",
     "href": "index.html#currently-active-courses",
     "title": "Teaching Activity",
-    "section": "",
-    "text": "These courses are currently being taught and materials are updated regularly:\n\nProbability Theory and Mathematical Statistics (HSE FCS 26) - HSE FCS"
+    "section": "Currently Active Courses",
+    "text": "Currently Active Courses\nThese courses are currently being taught and materials are updated regularly:\n\n\nProbability Theory and Mathematical Statistics (HSE FCS 26) - HSE FCS"
   },
   {
     "objectID": "index.html#archive",
     "href": "index.html#archive",
     "title": "Teaching Activity",
-    "section": "",
-    "text": "For past courses and materials, see the Archive page."
+    "section": "Archive",
+    "text": "Archive\nFor past courses and materials, see the Archive page."
   },
   {
     "objectID": "index.html#shared-materials",
     "href": "index.html#shared-materials",
     "title": "Teaching Activity",
-    "section": "",
-    "text": "Mathematical Statistics Shared Materials\nProbability Theory Shared Materials"
+    "section": "Shared Materials",
+    "text": "Shared Materials\n\n\nMathematical Statistics Shared Materials\nProbability Theory Shared Materials"
   },
   {
     "objectID": "math_stat_shared/numerical.html",
@@ -200,14 +200,14 @@
     "href": "archive.html",
     "title": "Archive",
     "section": "",
-    "text": "This page contains materials from completed courses.\n\n\n\n\n\nProbability and Mathematical Statistics 2025\n\n\n\n\n\nLinear Algebra 2025\n\n\n\n\n\n\n\n\nMathematical Statistics 2023\nProbability Theory 2023\n\n\n\n\n\n\n\n\nMathematical Statistics 2022\nProbability Theory 2022\n\n\n\n\n\n\n\n\nProbability Theory and Statistics 2021"
+    "text": "This page contains materials from completed courses."
   },
   {
     "objectID": "archive.html#section",
     "href": "archive.html#section",
     "title": "Archive",
-    "section": "",
-    "text": "Probability and Mathematical Statistics 2025\n\n\n\n\n\nLinear Algebra 2025"
+    "section": "2025",
+    "text": "2025\n\nHSE BI Courses\n\nProbability and Mathematical Statistics 2025\n\n\n\nHSE FCS Courses\n\nLinear Algebra 2025"
   },
   {
     "objectID": "archive.html#section-1",
@@ -579,5 +579,26 @@
     "title": "",
     "section": "",
     "text": "CodeShow All CodeHide All Code\n\n\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import chi2, t, norm\n\n\n\n\nCode\nplt.figure(figsize=(15,10))\nx = np.arange(0, 20, 0.001)\n\nfor i in range(3, 10):\n    plt.plot(x, chi2.pdf(x, df=i), label='df: {}'.format(i))\nplt.rc('legend', fontsize=15)\nplt.legend(title='Parameters')\n\nplt.ylabel('Density',fontsize=20)\nplt.xlabel('x', fontsize=20)\nplt.title('Chi-Square Distributions', fontsize=20)\nplt.savefig(\"chi_square_density.pdf\")\n\n\n\n\nCode\nplt.figure(figsize=(12,8))\nx = np.arange(-5, 5, 0.001)\n\nfor i in range(1,8):\n    plt.plot(x, t.pdf(x, df=i), label='df: {}'.format(i))\n    \nplt.rc('legend', fontsize=20)\nplt.legend(title='Parameters', title_fontsize=15)\n\nplt.ylabel('Density',fontsize=20)\nplt.xlabel('x', fontsize=20)\nplt.title('Student t-distributions', fontsize=20)\nplt.grid(True)\nplt.tight_layout()\nplt.savefig(\"t_density.pdf\")\n\n\n\n\nCode\nplt.figure(figsize=(15,10))\nd_f = 2\nplt.plot(x, t.pdf(x, df= d_f), label='df: {}'.format(d_f))\nplt.plot(x, norm.pdf(x), label='Z')    \nplt.legend(title='Parameters')\n\nplt.ylabel('Density')\nplt.xlabel('x')\nplt.title('Student t-distribution vs Standard Normal', fontsize=14)\n\n\n\n\nCode\nplt.figure(figsize=(12,8))\nd_f = 100\nplt.plot(x, t.pdf(x, df= d_f), label='t-distribution, df: {}'.format(d_f))\n\nplt.plot(x, norm.pdf(x), label='Standard Normal')  \n\nd_f = 2\nplt.plot(x, t.pdf(x, df= d_f), label='t-distribution, df: {}'.format(d_f))\n\nplt.rc('legend', fontsize=15)\nplt.legend()\n\nplt.ylabel('Density',fontsize=20)\nplt.xlabel('x', fontsize=20)\nplt.title('Student t-distribution vs Standard Normal', fontsize=20)\nplt.grid(True)\nplt.tight_layout()\nplt.savefig(\"t_limit_z.pdf\")"
+  },
+  {
+    "objectID": "archive.html#hse-mdi-courses",
+    "href": "archive.html#hse-mdi-courses",
+    "title": "Archive",
+    "section": "2023 HSE MDI Courses",
+    "text": "2023 HSE MDI Courses\n\nMathematical Statistics 2023\nProbability Theory 2023"
+  },
+  {
+    "objectID": "archive.html#hse-mdi-courses-1",
+    "href": "archive.html#hse-mdi-courses-1",
+    "title": "Archive",
+    "section": "2022 HSE MDI Courses",
+    "text": "2022 HSE MDI Courses\n\nMathematical Statistics 2022\nProbability Theory 2022"
+  },
+  {
+    "objectID": "archive.html#hse-mdi-courses-2",
+    "href": "archive.html#hse-mdi-courses-2",
+    "title": "Archive",
+    "section": "2021 HSE MDI Courses",
+    "text": "2021 HSE MDI Courses\n\nProbability Theory and Statistics 2021"
   }
 ]

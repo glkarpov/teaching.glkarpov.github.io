@@ -1,5 +1,65 @@
 /* Дополнительные кастомные стили в CSS формате */
-/* Этот файл будет включен в финальный HTML */
 
-/* Можно добавить специфичные стили, которые не поддерживаются SCSS */
+/* Smooth transitions */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Archive links styling */
+.archive-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.archive-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
+}
+
+/* Active course card */
+.active-course {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border-left: 4px solid #6366f1;
+  margin: 1rem 0;
+}
+
+/* Shared materials links */
+.shared-materials {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.shared-materials a {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white !important;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.shared-materials a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  text-decoration: none;
+  color: white !important;
+}
+
+/* Footer/end of page */
+.page-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(99, 102, 241, 0.1);
+  text-align: center;
+  color: #64748b;
+}
 
