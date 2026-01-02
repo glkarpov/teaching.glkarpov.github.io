@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[top=1cm,bottom=1cm,left=2cm,right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\title{ФКН ВШЭ, МНаД. \\ Линейная алгебра. \\ Лист задач 2. Базисы и координаты.}
+\date{}
+\author{}
+\graphicspath{{data/}}  
+% Custom command for column vector
+\newcommand{\vtwo}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+\begin{document}
+\maketitle
+% \begin{center}
+%     Deadline: before seminar starts
+% \end{center}
+
+\begin{enumerate}
+
+
+    \item Найдите координатный вектор для:
+    \begin{enumerate}
+        \item Вектора $x = \vtwo{1}{1}$ в базисе $\mathcal{B} = \{b_1, b_2\}$ пространства $\mathbb{R}^2$, если $b_1 = \vtwo{2}{-4}$, $b_2 = \vtwo{3}{8}$.
+        \item Вектора $p(x) = 4 + 5 x$ в базисе $U = \{u_1, u_2\}$ пространства $\mathbb{R}[x,1]$, если $u_1 = 1 + 2x$, $u_2 = -2 - 3x$.
+    \end{enumerate}
+
+    \textit{Hint: нужно составить и решить две системы линейных уравнений:}
+    $$
+    P_{B \to S} [x]_B = [x]_S \quad \text{и} \quad P_{U \to S} [p(x)]_U = [p(x)]_S
+    $$
+
+\item В пространстве $\mathbb{R}^2$ задан базис $B = \{b_1, b_2\}$, где $b_1 = \vtwo{1}{1}$, $b_2 = \vtwo{2}{1}$
+\begin{enumerate}
+    \item Найдите матрицу перехода $P_{B \to S}$ от базиса $B$ к стандартному базису $S$ пространства $\mathbb{R}^2$.
+    \item Найдите матрицу перехода $P_{S \to B}$ от стандартного базиса $S$ к базису $B$.
+    \item Убедитесь, что эти матрицы являются обратными друг для друга.
+\end{enumerate}
+
+\item В пространстве $\mathbb{R}^2$ задан базис $\mathcal{B} = \{b_1, b_2\}$, где $b_1 = \vtwo{1}{3}$, $b_2 = \vtwo{1}{0}$,
+а также базис $\mathcal{C} = \{c_1, c_2\}$, где $c_1 = \vtwo{1}{1}$, $c_2 = \vtwo{-2}{1}$.
+
+Найдите:
+
+\begin{enumerate}
+    \item Найдите матрицы перехода $P_{B \to S}$ и $P_{S \to B}$ от базиса $\mathcal{B}$ к стандартному базису и обратно.
+    \item Найдите матрицы перехода $P_{C \to S}$ и $P_{S \to C}$ от базиса $\mathcal{C}$ к стандартному базису и обратно.
+\end{enumerate}
+
+Далее, воспользуемся знанием, что $P_{B \to S} [x]_B = [x]_S = P_{C \to S} [x]_C$ (на этом моменте спросите себя, понимаете ли вы, почему это так).
+Примените трюк с обратной матрицей и найдите матрицы перехода от базиса $\mathcal{B}$ к базису $\mathcal{C}$ и обратно, то есть $P_{B \to C}$ и $P_{C \to B}$.
+Приведите пример, как это работает, на конкретно взятом векторе.
+
+\item Пусть $\mathbb{V}$ — множество всех верхнетреугольных (у которых элементы под главной диагональю всегда равны нулю) матриц размера $2 \times 2$. Множество $\mathbb{V}$ является векторным пространством, и у него есть, например, стандартный базис:
+
+    $$
+    \mathcal{A}=\left(\left[\begin{array}{ll}
+    1 & 0 \\
+    0 & 0
+    \end{array}\right],\left[\begin{array}{ll}
+    0 & 1 \\
+    0 & 0
+    \end{array}\right],\left[\begin{array}{ll}
+    0 & 0 \\
+    0 & 1
+    \end{array}\right]\right)
+    $$
+
+    Найдите координаты элемента $D=\left[\begin{array}{rr}2 & -1 \\ 0 & 1\end{array}\right]$ относительно стандартного базиса $\mathcal{A}$. Покажите, что это работает в виде линейной комбинации базисных векторов и координат, \textit{т.е.} как мы обсуждали, что если $\{ v_1, \ldots, v_n \}$ — базис, то $\forall x$ из векторного пространства $x = \alpha_1 v_1 + \ldots + \alpha_n v_n$.
+
+    Но также могут быть и другие базисы! Пусть:
+
+    $$
+    \mathcal{B}=\left(\left[\begin{array}{ll}
+    1 & 0 \\
+    0 & 1
+    \end{array}\right],\left[\begin{array}{ll}
+    0 & 1 \\
+    0 & 1
+    \end{array}\right],\left[\begin{array}{ll}
+    1 & 0 \\
+    0 & 2
+    \end{array}\right]\right)
+    $$
+является другим базисом для $\mathbb{V}$. Постройте матрицу $P_{B \to A}$ перехода от базиса $\mathcal{B}$ к базису $\mathcal{A}$. Найдите координатный столбец $[D]_{\mathcal{B}}$, т.е. координаты элемента $D$ относительно базиса $\mathcal{B}$.
+
+\end{enumerate}
+
+\end{document}

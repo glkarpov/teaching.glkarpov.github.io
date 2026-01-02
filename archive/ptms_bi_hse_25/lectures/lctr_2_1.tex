@@ -1,0 +1,129 @@
+\documentclass[landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[margin=0.5cm, paperwidth=29.7cm, paperheight=21cm]{geometry}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+
+% Убираем все отступы и границы
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\footskip}{0pt}
+
+% Увеличиваем размер шрифта
+\fontsize{14pt}{17pt}\selectfont
+
+% Увеличиваем размер математических формул
+\DeclareMathSizes{14}{20}{16}{14}
+
+\begin{document}
+\pagestyle{empty}
+\noindent
+\vspace{0.8cm}
+
+% Разделение на 2 горизонтальные области
+\begin{tikzpicture}[remember picture, overlay]
+    % Вертикальная линия посередине
+    \draw[very thin, gray] ([xshift=14.85cm]current page.north west) -- ([xshift=14.85cm]current page.south west);
+\end{tikzpicture}
+
+% Две вертикальные колонки: Варианты 1 и 3 слева, Варианты 2 и 4 справа
+\noindent
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+
+   \textbf{Для 1 и 2 варианта: Рассмотрим две случайные величины $X$ и $Y$.}
+
+   \textbf{Обе они могут принимать значения $0$, $1$ и $2$.}
+
+   Восстановите таблицу совместного распределения случайных величин $X$ и $Y$.
+    
+   Найдите $\mathbb{E}(X), \mathbb{E}(Y), \operatorname{Var}(X), \operatorname{Cov}(X, Y)$.
+
+    \textbf{1 вариант: Фамилии от А до Г:}
+
+    \begingroup\Large
+    $$
+    \begin{aligned}
+    \mathrm{P}(X=0) & =0.2 \quad \text { and } \mathrm{P}(X=1)=0.3, \\
+    \mathrm{P}(Y=0) & =0.2 \quad \text { and } \mathrm{P}(Y=1)=0.3, \\
+    \mathrm{P}(Y=0 \mid X=0) & =0.5 \quad \text { and } \mathrm{P}(Y=0 \mid X=1)=0.2, \\
+    \mathrm{P}(Y=1 \mid X=0) & =0.4 \quad \text { and } \mathrm{P}(Y=1 \mid X=1)=0.3 .
+    \end{aligned}
+    $$
+    \endgroup
+
+    Найдите $P(Y = 1 \mid Y + X > 2)$.
+    
+    Постройте условное распределение случайной величины $X$ при условии $Y=0$
+
+    \vspace{1.5cm}
+
+    \textbf{2 вариант: Фамилии от Д до К:}
+    \begingroup\Large
+    $$
+    \begin{aligned}
+    \mathrm{P}(X=0) & =0.5 \quad \text { and } \mathrm{P}(X=1)=0.2, \\
+    \mathrm{P}(Y=0) & =0.25 \quad \text { and } \mathrm{P}(Y=1)=0.35, \\
+    \mathrm{P}(Y=0 \mid X=0) & =0.2 \quad \text { and } \mathrm{P}(Y=0 \mid X=1)=0.25, \\
+    \mathrm{P}(Y=1 \mid X=0) & =0.4 \quad \text { and } \mathrm{P}(Y=1 \mid X=1)=0.25 .
+    \end{aligned}
+    $$
+    \endgroup
+    
+    Найдите $P(X = 2|Y +X > 2)$.
+    
+    Постройте условное распределение случайной величины $X$ при условии $Y=0$
+
+\end{minipage}
+\hfill
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+
+    \textbf{Для 3 и 4 варианта: Величина $X$ может принимать значения $0$, $1$ и $2$,
+    а $Y$ может принимать значения $0$ и $1$.}
+    
+    Восстановите таблицу совместного распределения случайных величин $X$ и $Y$.
+    
+    Найдите $\mathbb{E}(X), \mathbb{E}(Y), \operatorname{Var}(X), \operatorname{Cov}(X, Y)$.
+    
+    \textbf{3 вариант: Фамилии от Л до Р:}
+
+    \begingroup\Large
+    $$
+    \begin{gathered}
+    \operatorname{P}(X=0)=0.4, \operatorname{P}(X=1)=0.2, \\
+    \operatorname{P}(Y=0 \mid X=0)=0.4, \\
+    \operatorname{P}(Y=0 \mid X=1)=0.2, \\
+    \operatorname{P}(Y=0 \mid X=2)=0.3
+    \end{gathered}
+    $$
+    \endgroup
+
+    Найдите $P(Y = 1 | X + Y \leq 2)$.
+    
+    Постройте условное распределение случайной величины $X$ при условии $Y=0$
+
+\vspace{1.5cm}
+
+    \textbf{4 вариант: Фамилии от С до Я:}
+    \begingroup\Large
+    $$
+    \begin{gathered}
+    \operatorname{P}(X=1)=0.5, \operatorname{P}(X=2)=0.2, \\
+    \operatorname{P}(Y=0 \mid X=0)=0.4, \\
+    \operatorname{P}(Y=0 \mid X=1)=0.3, \\
+    \operatorname{P}(Y=0 \mid X=2)=0.5
+    \end{gathered}
+    $$
+    \endgroup
+
+    Найдите $P(Y = 0 | X + Y > 1)$.
+    
+    Постройте условное распределение случайной величины $X$ при условии $Y=0$
+
+\end{minipage}
+
+\end{document}

@@ -1,0 +1,95 @@
+\documentclass[landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[margin=0.5cm, paperwidth=29.7cm, paperheight=21cm]{geometry}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+
+% Убираем все отступы и границы
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\footskip}{0pt}
+
+% Увеличиваем размер шрифта
+\fontsize{14pt}{17pt}\selectfont
+
+% Увеличиваем размер математических формул
+\DeclareMathSizes{14}{20}{16}{14}
+
+\begin{document}
+\pagestyle{empty}
+\noindent
+\vspace{0.8cm}
+
+% Разделение на 2 горизонтальные области
+\begin{tikzpicture}[remember picture, overlay]
+    % Вертикальная линия посередине
+    \draw[very thin, gray] ([xshift=14.85cm]current page.north west) -- ([xshift=14.85cm]current page.south west);
+\end{tikzpicture}
+
+% Две вертикальные колонки: Варианты 1 и 3 слева, Варианты 2 и 4 справа
+\noindent
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+
+    \textbf{1 вариант: Фамилия от А до Г}
+
+    \begingroup\Large
+    Предположим, у нас есть три взаимно независимые случайные выборки:
+    \begin{itemize}
+        \item $\{X_1 , \ldots , X_{12}\}$, каждая $X_i \sim \mathcal{N}(1, 4)$,
+        \item $\{Y_1 , \ldots , Y_6\}$, каждая $Y_i \sim \mathcal{N}(-2, 9)$,
+        \item $\{Z_1 , \ldots , Z_4\}$, каждая $Z_i \sim \mathcal{N}(0, 1)$.
+    \end{itemize}
+    Найдите вероятность $P(W < 0.42)$, где $W = \bar{X} + \bar{Y} + \bar{Z}$.
+    \endgroup
+
+    \vspace{3.5cm}
+
+    \textbf{2 вариант: Фамилия от Д до М:}
+
+    \begingroup\Large
+    Предположим, у нас есть три взаимно независимые случайные выборки:
+    \begin{itemize}
+        \item $\{X_1 , \ldots , X_8\}$, каждая $X_i \sim \mathcal{N}(2, 5)$,
+        \item $\{Y_1 , \ldots , Y_{10}\}$, каждая $Y_i \sim \mathcal{N}(-1, 6)$,
+        \item $\{Z_1 , \ldots , Z_5\}$, каждая $Z_i \sim \mathcal{N}(1, 2)$.
+    \end{itemize}
+    Найдите вероятность $P(W < 3.5)$, где $W = \bar{X} - \bar{Y} + \bar{Z}$.
+    \endgroup
+
+\end{minipage}
+\hfill
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+    
+    \textbf{3 вариант: Фамилия от Н до С}
+
+    \begingroup\Large
+    Предположим, у нас есть три взаимно независимые случайные выборки:
+    \begin{itemize}
+        \item $\{X_1 , \ldots , X_6\}$, каждая $X_i \sim \mathcal{N}(0, 3)$,
+        \item $\{Y_1 , \ldots , Y_9\}$, каждая $Y_i \sim \mathcal{N}(2, 4)$,
+        \item $\{Z_1 , \ldots , Z_7\}$, каждая $Z_i \sim \mathcal{N}(-1, 5)$.
+    \end{itemize}
+    Найдите точку $k$, такую что $P(\bar{X} + \bar{Y} + \bar{Z} > k) = 0.75$.
+    \endgroup
+
+    \vspace{3.5cm}
+
+    \textbf{4 вариант: Фамилия от Т до Я:}
+
+    \begingroup\Large
+    Предположим, у нас есть три взаимно независимые случайные выборки:
+    \begin{itemize}
+        \item $\{X_1 , \ldots , X_{10}\}$, каждая $X_i \sim \mathcal{N}(3, 7)$,
+        \item $\{Y_1 , \ldots , Y_4\}$, каждая $Y_i \sim \mathcal{N}(-2, 8)$,
+        \item $\{Z_1 , \ldots , Z_8\}$, каждая $Z_i \sim \mathcal{N}(1, 3)$.
+    \end{itemize}
+    Найдите вероятность $P(W < 2.3)$, где $W = \bar{X} + 2\bar{Y} - \bar{Z}$.
+    \endgroup
+\end{minipage}
+
+\end{document}

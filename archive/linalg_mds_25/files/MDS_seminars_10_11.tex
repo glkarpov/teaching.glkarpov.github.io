@@ -1,0 +1,82 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\section*{Семинар. Векторные пространства}
+
+1. Для каждого набора векторов и представленного пространства $V$ в каждом случае определите, являются ли они: 
+\begin{itemize}
+    \item Линейно независимыми;
+    \item Линейно зависимыми в пространстве $V$;
+\end{itemize}
+\begin{enumerate}
+    \item $2 - x + 4x^2,\ 3 + 6x + 2x^2,\ 2 + 10x - 4x^2,\ V = P_2$
+    \item $(-3, 0, 4),\ (5, -1, 2),\ (1, 1, 3),\ V = \mathbb{R}^3$
+\end{enumerate}
+
+2. Покажите, что следующий набор векторов составляет базис в пространстве $V$:
+\begin{enumerate}
+    \item $\{(2, 1), (3, 0)\}$, $V = \mathbb{R}^2$
+    \item $1 + x,\ 1 - x,\ 1 - x^2,\ 1 - x^3$, $V = P_2$
+\end{enumerate}
+
+3. Докажите, что:
+\begin{enumerate}
+    \item Набор векторов $\{(2, -3, 1), (4, 1, 1), (0, -7, 1)\}$ не является базисом для $\mathbb{R}^3$;
+    \item Множество следующих матриц не образует базис в пространстве $M_{22}$:
+    \[
+    \left\{\begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix},
+    \begin{pmatrix} 2 & -2 \\ 3 & 2 \end{pmatrix},
+    \begin{pmatrix} 1 & -1 \\ 1 & 0 \end{pmatrix},
+    \begin{pmatrix} 0 & -1 \\ 1 & 1 \end{pmatrix}\right\}
+    \]
+\end{enumerate}
+
+4. Найдите координатный вектор для:
+\begin{enumerate}
+    \item Вектора $\mathbf{w} = (1, 1)$ в базисе $S = \{\mathbf{u}_1, \mathbf{u}_2\}$ пространства $\mathbb{R}^2$, если $\mathbf{u}_1 = (2, -4)$, $\mathbf{u}_2 = (3, 8)$.
+    \item Многочлена $p = 2 - x + x^2$ в базисе $S = \{p_1, p_2, p_3\}$ пространства $P_2$, если $p_1 = 1 + x$, $p_2 = 1 + x^2$, $p_3 = x + x^2$
+\end{enumerate}
+
+5. Найдите базис и размерность для следующих пространств:
+\begin{enumerate}
+    \item Пространства всех симметрических матриц размера $2 \times 2$
+    \item Пространства всех кососимметрических матриц размера $2 \times 2$
+\end{enumerate}
+
+6. Найдите базис подпространства в $\mathbb{R}^3$, порождённого векторами: 
+$\mathbf{v}_1 = (1, 0, 0)$, $\mathbf{v}_2 = (1, 0, 1)$, $\mathbf{v}_3 = (2, 0, 1)$, $\mathbf{v}_4 = (0, 0, -1)$.\\
+
+7. В пространстве $\mathbb{R}^2$ заданы два базиса: $B = \{\mathbf{u}_1, \mathbf{u}_2\}$, $B' = \{\mathbf{u}'_1, \mathbf{u}'_2\}$, где $\mathbf{u}_1 = (1, 0)$, $\mathbf{u}_2 = (0, 1)$, $\mathbf{u}'_1 = (1, 1)$, $\mathbf{u}'_2 = (2, 1)$
+\begin{enumerate}
+    \item Найдите матрицу перехода $P_{B' \to B}$ от базиса $B'$ к базису $B$.
+    \item Найдите матрицу перехода $P_{B \to B'}$ от базиса $B$ к базису $B'$.
+    \item Убедитесь, что эти матрицы являются обратными друг для друга.
+\end{enumerate}
+\pagebreak
+8. Для приведённых ниже пар базисов найдите матрицу перехода от $B$ к $B'$:
+\begin{enumerate}
+    \item Базисы $B = \{\mathbf{u}_1, \mathbf{u}_2\}$ и $B' = \{\mathbf{u}'_1, \mathbf{u}'_2\}$ в $\mathbb{R}^2$, где $\mathbf{u}_1 = (1, 3)$, $\mathbf{u}_2 = (1, 0)$, $\mathbf{u}'_1 = (1, 1)$, $\mathbf{u}'_2 = (-2, 1)$
+    \item Базисы $B = \{\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3\}$ и $B' = \{\mathbf{u}'_1, \mathbf{u}'_2, \mathbf{u}'_3\}$ в $\mathbb{R}^3$, где $\mathbf{u}_1 = (1, 1, 1)$, $\mathbf{u}_2 = (1, 2, 3)$, $\mathbf{u}_3 = (1, 0, 1)$, $\mathbf{u}'_1 = (-1, 0, 1)$, $\mathbf{u}'_2 = (1, 3, 3)$, $\mathbf{u}'_3 = (1, -1, -1)$
+\end{enumerate}
+
+9. Рассмотрим в пространстве $\mathbb{R}^2$ базисы $B = \{ \mathbf{u}_1, \mathbf{u}_2 \}$ и $B' = \{ \mathbf{u}'_1, \mathbf{u}'_2 \}$, где 
+\[
+\mathbf{u}_1 = (2, 2), \quad \mathbf{u}_2 = (4, -1), \quad \mathbf{u}'_1 = (1, 3), \quad \mathbf{u}'_2 = (-1, -1)
+\]
+\begin{enumerate}
+    \item Найдите матрицу перехода от базиса $B'$ к базису $B$.
+    \item Найдите матрицу перехода от базиса $B$ к базису $B'$.
+    \item Найдите координатный вектор $[ \mathbf{w} ]_B$, где $\mathbf{w} = (3, -5)$.
+    \item Выполните проверку, найдя $[ \mathbf{w} ]_{B'}$ непосредственно.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[top=1cm,bottom=1cm,left=2cm,right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\title{ВШБ БИ: ТВиМС 2025. \\ Лист seminar-only задач \#11. \\ Точечные оценки. Метод моментов. Интервальные оценки.}
+\date{}
+\author{}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Были произведены два измерения стороны квадрата.
+Предположим, что два измерения $X_1$ и $X_2$ являются случайными величинами со средним $a$ и дисперсией $\sigma^2$.
+Истинная длина стороны квадрата равна $a$. Найдите среднюю квадратичную ошибку для следующей оценки площади квадрата: $T = X_1 X_2$.
+
+\item Пусть $X_1, \ldots, X_n$ - случайная выборка из распределения с плотностью распределения
+$$
+f(x, \theta)= \begin{cases}\frac{6 x(\theta-x)}{\theta^3} & \text { при } x \in[0 ; \theta], \\ 0 & \text { при } x \notin[0 ; \theta],\end{cases}
+$$
+
+где $\theta>0$ - неизвестный параметр распределения и $\hat{\theta}=\bar{X}$.
+\begin{enumerate}
+    \item Является ли оценка $\hat{\theta}=\bar{X}$ несмещённой оценкой неизвестного параметра $\theta$ ?
+    \item Подберите константу $c$ так, чтобы оценка $\tilde{\theta}=c \bar{X}$ оказалась несмещенной оценкой неизвестного параметра $\theta$.
+\end{enumerate}
+
+\item Пусть $X_1, \ldots, X_n$ - случайная выборка из равномерного распределения на отрезке $[0, \theta]$, где $\theta>0$ неизвестный параметр распределения. Известно, что $n=100$ и $\bar{x}=0.57$. Используя центральную предельную теорему, постройте приближенный $95 \%$-й доверительный интервал для параметра $\theta$.
+\end{enumerate}
+
+\end{document}

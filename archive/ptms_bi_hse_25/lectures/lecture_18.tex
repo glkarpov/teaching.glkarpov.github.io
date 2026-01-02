@@ -1,0 +1,909 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  9pt,
+  ignorenonframetext,
+  aspectratio=169,
+  english,
+]{beamer}
+\newif\ifbibliography
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% remove section numbering
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{section title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{subsection title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+
+\usetheme[]{Singapore}
+\usefonttheme[]{serif}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage[english]{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\PassOptionsToPackage{backref=page}{hyperref}
+% %%% === ADDITIONAL PACKAGES
+% \usepackage{animate}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{cancel}
+\usepackage{booktabs}
+\usepackage{stmaryrd}
+\usepackage[export]{adjustbox}
+\usepackage{fontawesome5}
+\usepackage{algorithmic}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{yfonts}
+\usetikzlibrary{arrows.meta, calc, quotes, tikzmark}
+\graphicspath{{../files/}}
+
+% % \LinesNumbered
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+% \newcommand{\theHtable}{\thetable}
+\usepackage[ruled,vlined]{algorithm2e}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\vect}[1]{\boldsymbol{\mathbf{#1}}}
+
+% %%% === CONDITIONAL PACKAGE
+\usepackage{ifthen}
+
+%%% === TEMPLATE
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+% Set the main language to Russian
+% \setmainlanguage{russian}
+
+% Set Computer Modern Unicode (CMU) as the main font for both Latin and Cyrillic
+\newfontfamily\cyrillicfont{CMU Serif}
+\newfontfamily\cyrillicfontsf{CMU Sans Serif}
+\newfontfamily\cyrillicfonttt{CMU Typewriter Text}
+
+\setmainfont{CMU Serif}          % For regular (serif) text
+\setsansfont{CMU Sans Serif}      % For sans-serif text
+\setmonofont{CMU Typewriter Text} % For monospaced (typewriter-style) text
+\DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+\setmathfont{CMU Sans Serif}
+
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{frametitle}{series=\bfseries, size=\fontsize{12}{14}}
+\setbeamerfont{normal text}{series=\mdseries}
+
+\setbeamersize
+{
+    text margin left=0.214cm,
+    text margin right=0.214cm
+}
+
+% \usefonttheme[onlymath]{serif}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamertemplate{itemize items}[circle] % For level-1 itemize
+\setbeamertemplate{itemize subitem}[circle] % For level-2 (subitems)
+\setbeamertemplate{itemize subsubitem}[circle] % For level-3 (subsubitems)
+\captionsetup[figure]{name=Рис.}
+
+% \addtobeamertemplate{footline}{\raisebox{-1.3pt}{\href{https://fmin.xyz}{\includegraphics[height=0.27cm]{logo.pdf}}~\includegraphics[height=0.27cm]{logo_cu.pdf}} \hspace{0.2cm} \hbox{\insertsection \hspace{0.2cm}} \hfill \href{https://cu25.fmin.xyz}{\faGem[regular]} \hspace{0.04cm} \href{https://github.com/MerkulovDaniil/cu25}{\faGithub} \hspace{0.07cm} \href{https://t.me/fminxyz}{\faTelegram} \hspace{0.4cm}\hbox{\insertframenumber \hspace{0.1cm}}
+%   \vskip0pt
+% }
+
+\usenavigationsymbolstemplate{}
+
+% %%% === ADDITIONAL COMMANDS
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+%%% === BACKGROUND IMAGE SETUP
+\AtBeginDocument{
+  \ifthenelse{\isundefined{\bgimage}}{
+    % No background image specified
+  }{
+    \setbeamertemplate{title page}{
+      \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=center, xshift=0pt, yshift=0pt] at (current page.center) {
+          \includegraphics[width=1.05\paperwidth, height=1.05\paperheight]{\bgimage}
+        };
+        \node[fill=white, fill opacity=0.7, text opacity=1, inner sep=10pt, rounded corners=10pt] at (current page.center) {
+          \begin{minipage}{0.5\paperwidth}
+            \centering
+            \usebeamerfont{title}\inserttitle\par
+            \vspace*{0.5cm}
+            \usebeamerfont{author}\insertauthor\par
+            \vspace*{0.5cm}
+            \usebeamerfont{institute}\insertinstitute\par
+          \end{minipage}
+        };
+      \end{tikzpicture}
+    }
+  }
+}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Теория вероятностей и математическая статистика},
+  pdfauthor={Глеб Карпов},
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Теория вероятностей и математическая статистика}
+\subtitle{Тестирование статистических гипотез III. Начала линейной
+регрессии.}
+\author{Глеб Карпов}
+\date{}
+\institute{ВШБ Бизнес-информатика}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\begin{frame}{Тестирование гипотез о разности долей двух бинарных
+признаков}
+\phantomsection\label{ux442ux435ux441ux442ux438ux440ux43eux432ux430ux43dux438ux435-ux433ux438ux43fux43eux442ux435ux437-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux434ux43eux43bux435ux439-ux434ux432ux443ux445-ux431ux438ux43dux430ux440ux43dux44bux445-ux43fux440ux438ux437ux43dux430ux43aux43eux432}
+\begin{block}{Иначе: о разностях вероятностей успеха у двух случайных
+величин Бернулли}
+\phantomsection\label{ux438ux43dux430ux447ux435-ux43e-ux440ux430ux437ux43dux43eux441ux442ux44fux445-ux432ux435ux440ux43eux44fux442ux43dux43eux441ux442ux435ux439-ux443ux441ux43fux435ux445ux430-ux443-ux434ux432ux443ux445-ux441ux43bux443ux447ux430ux439ux43dux44bux445-ux432ux435ux43bux438ux447ux438ux43d-ux431ux435ux440ux43dux443ux43bux43bux438}
+\begin{itemize}
+    \item Предположим, у нас есть случайная выборка $\mathcal{X} = \{X_1, \ldots, X_n\}$ из распределения Бернулли с $P(X_i = 1) = p_1$, и случайная выборка $\mathcal{Y} = \{Y_1, \ldots, Y_m\}$ из распределения Бернулли с $P(Y_i = 1) = p_2$. Тогда обе случайные выборки - процессы Бернулли длины $n$ и $m$ соответственно.
+
+    \item Нас интересует разность истинных долей (или, то же самое, разность вероятностей успеха):
+    $$
+      \theta = p_1 - p_2
+    $$
+
+    \item Если $n, m > 30$, то по ИТМЛ:
+    $$
+    \hat{p}_1 \sim \mathcal{N}\left(p_1, \frac{p_1(1-p_1)}{n}\right), \quad \hat{p}_2 \sim \mathcal{N}\left(p_2, \frac{p_2(1-p_2)}{m}\right)
+    $$
+    \item Введём точечную оценку $\hat{\theta} = \hat{p}_1 - \hat{p}_2$ — разность двух выборочных долей.
+    \item Свойства точечной оценки: $E[\hat{\theta}] = p_1 - p_2$, $Var[\hat{\theta}] = \frac{p_1(1-p_1)}{n} + \frac{p_2(1-p_2)}{m}$.
+    \item Так как сумма двух нормальных случайных величин — нормальная случайная величина:
+    $$
+    \hat{\theta} \sim \mathcal{N}\left(p_1 - p_2, \frac{p_1(1-p_1)}{n} + \frac{p_2(1-p_2)}{m}\right)
+    $$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Тестирование гипотез о разности долей двух бинарных
+признаков}
+\phantomsection\label{ux442ux435ux441ux442ux438ux440ux43eux432ux430ux43dux438ux435-ux433ux438ux43fux43eux442ux435ux437-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux434ux43eux43bux435ux439-ux434ux432ux443ux445-ux431ux438ux43dux430ux440ux43dux44bux445-ux43fux440ux438ux437ux43dux430ux43aux43eux432-1}
+\begin{block}{Пример 1: левосторонний тест}
+\phantomsection\label{ux43fux440ux438ux43cux435ux440-1-ux43bux435ux432ux43eux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442}
+Фармацевтическая компания тестирует новое лекарство против стандартного
+лечения. Вопрос: имеет ли новое лекарство более высокую долю
+выздоровления, чем стандартное лечение?
+
+\begin{itemize}
+    \item Разработка лекарств затратна и требует много времени. Даже небольшие улучшения в доле выздоровления могут спасти жизни и снизить затраты на здравоохранение. Статистическая валидация критически важна перед получением регуляторного одобрения.
+    \item Данные:
+    \begin{itemize}
+        \item Стандартное лечение (A): $n = 800$ пациентов, $\tilde{p}_A = 0.65$ (65\% доля выздоровления)
+        \item Новое лекарство (B): $m = 400$ пациентов, $\tilde{p}_B = 0.72$ (72\% доля выздоровления)
+    \end{itemize}
+    \item Гипотезы:
+    \begin{itemize}
+        \item $H_0: p_A = p_B$ (новое лекарство не более эффективно)
+        \item $H_1: p_A < p_B$ (новое лекарство имеет более высокую долю выздоровления)
+    \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Тестирование гипотез о разности долей двух бинарных
+признаков}
+\phantomsection\label{ux442ux435ux441ux442ux438ux440ux43eux432ux430ux43dux438ux435-ux433ux438ux43fux43eux442ux435ux437-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux434ux43eux43bux435ux439-ux434ux432ux443ux445-ux431ux438ux43dux430ux440ux43dux44bux445-ux43fux440ux438ux437ux43dux430ux43aux43eux432-2}
+\begin{block}{Односторонний тест}
+\phantomsection\label{ux43eux434ux43dux43eux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442}
+\begin{itemize}
+    \item Идея: мы можем ввести новую случайную величину $D = \hat{p}_1 - \hat{p}_2$
+    \item Её параметры: $E[D] = p_1 - p_2$, $Var[D] = \frac{p_1(1-p_1)}{n} + \frac{p_2(1-p_2)}{m}$
+    \item Если $p_1 = p_2$, то $E[D] = 0$, если $p_1 < p_2$, то $E[D] < 0$
+    \item Таким образом, задача сравнения $p_1$ с $p_2$ сводится к тестированию математического ожидания одной случайной величины $D$:
+    $$
+    H_0: \; E[D] = 0, \; H_1: \; E[D] < 0
+    $$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Тестирование гипотез о разности долей двух бинарных
+признаков}
+\phantomsection\label{ux442ux435ux441ux442ux438ux440ux43eux432ux430ux43dux438ux435-ux433ux438ux43fux43eux442ux435ux437-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux434ux43eux43bux435ux439-ux434ux432ux443ux445-ux431ux438ux43dux430ux440ux43dux44bux445-ux43fux440ux438ux437ux43dux430ux43aux43eux432-3}
+\begin{block}{Односторонний тест}
+\phantomsection\label{ux43eux434ux43dux43eux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442-1}
+Для тестирования \(H_0: p_1 - p_2 = 0\) против \(H_1: p_1 - p_2 < 0\),
+предположим \(p_1 = p_2 = p_c\) (общая доля при нулевой гипотезе):
+
+\begin{itemize}
+    \item Распределение \textit{при нулевой гипотезе}:
+    $$
+    \colorbox{red!20}{$D \sim \mathcal{N} \left( 0, \quad  \frac{p_c(1-p_c)}{n} + \frac{p_c(1-p_c)}{m} \right) = \mathcal{N} \left( 0, \quad  p_c(1-p_c) \left(\frac{1}{n} + \frac{1}{m}\right) \right)$}
+    $$
+    
+    \item Используем $z$-статистику для преобразования данных в шкалу стандартного нормального распределения:
+    $$
+    z_{\text{score}} = \colorbox{red!20}{$\frac{\tilde{p}_1 - \tilde{p}_2}{\sqrt{p_{c}(1-p_{c}) \left(\frac{1}{n} + \frac{1}{m}\right)}}$}
+    $$
+    
+    \item Объединённая (общая) доля $p_{c}$ — это наша оценка общей доли при нулевой гипотезе:
+    $$
+    p_{c} = \frac{\tilde{p}_1 n + \tilde{p}_2 m}{n + m}
+    $$
+    
+    \item Правило принятия решения: Отклонить $H_0$, если $z_{\text{score}} < -z_{\alpha}$ в левостороннем тесте или если $z_{\text{score}} > z_{\alpha}$ в правостороннем тесте.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Тестирование гипотез о разности долей двух бинарных
+признаков}
+\phantomsection\label{ux442ux435ux441ux442ux438ux440ux43eux432ux430ux43dux438ux435-ux433ux438ux43fux43eux442ux435ux437-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux434ux43eux43bux435ux439-ux434ux432ux443ux445-ux431ux438ux43dux430ux440ux43dux44bux445-ux43fux440ux438ux437ux43dux430ux43aux43eux432-4}
+\begin{block}{Пример 1: решение}
+\phantomsection\label{ux43fux440ux438ux43cux435ux440-1-ux440ux435ux448ux435ux43dux438ux435}
+\begin{itemize}
+    \item \textbf{Гипотезы}: $H_0: p_A = p_B$ против $H_1: p_A < p_B$ (левосторонний тест)
+    
+    \item \textbf{Данные}: $n = 800$, $m = 400$, $\tilde{p}_A = 0.65$, $\tilde{p}_B = 0.72$, $\alpha = 0.05$
+    
+    \item \textbf{Объединённая доля}:
+    $$
+    p_c = \frac{0.65 \cdot 800 + 0.72 \cdot 400}{800 + 400} = \frac{520 + 288}{1200} = 0.673
+    $$
+    
+    \item \textbf{$z$-статистика}: $z_{0.05} = 1.645$
+    $$
+    z_{\text{score}} = \frac{0.65 - 0.72}{\sqrt{0.673 \cdot 0.327 \cdot \left(\frac{1}{800} + \frac{1}{400}\right)}} = \frac{-0.07}{\sqrt{0.220 \cdot 0.00375}} \approx -2.58
+    $$
+    
+    \item \textbf{Решение}: $z_{\text{score}} = -2.58 < -z_{0.05} = -1.645$, поэтому отклоняем $H_0$.
+    
+    \item \textbf{Вывод}: Имеются достаточно статистически значимые основания для утверждения, что новое лекарство более эффективно, чем стандартное лечение. Консервативная гипотеза отклоняется в пользу альтернативной.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Тестирование гипотез о разности долей двух бинарных
+признаков}
+\phantomsection\label{ux442ux435ux441ux442ux438ux440ux43eux432ux430ux43dux438ux435-ux433ux438ux43fux43eux442ux435ux437-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux434ux43eux43bux435ux439-ux434ux432ux443ux445-ux431ux438ux43dux430ux440ux43dux44bux445-ux43fux440ux438ux437ux43dux430ux43aux43eux432-5}
+\begin{block}{Пример 2: двусторонний тест}
+\phantomsection\label{ux43fux440ux438ux43cux435ux440-2-ux434ux432ux443ux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442}
+Сеть ресторанов сравнивает уровень удовлетворённости клиентов между
+двумя локациями. Вопрос: есть ли значимая разница в уровне
+удовлетворённости?
+
+\begin{itemize}
+    \item Удовлетворённость клиентов — важный фактор успеха бизнеса. Понимание различий между локациями может помочь в распределении ресурсов и выборе стратегии развития.
+    \item Данные:
+    \begin{itemize}
+        \item Локация A: $n = 200$ клиентов, $\tilde{p}_A = 0.85$ (85\% удовлетворены)
+        \item Локация B: $m = 200$ клиентов, $\tilde{p}_B = 0.78$ (78\% удовлетворены)
+    \end{itemize}
+    \item Гипотезы:
+    \begin{itemize}
+        \item $H_0: p_A = p_B$ (нет разницы в уровне удовлетворённости)
+        \item $H_1: p_A \neq p_B$ (разные уровни удовлетворённости)
+    \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Тестирование гипотез о разности долей двух бинарных
+признаков}
+\phantomsection\label{ux442ux435ux441ux442ux438ux440ux43eux432ux430ux43dux438ux435-ux433ux438ux43fux43eux442ux435ux437-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux434ux43eux43bux435ux439-ux434ux432ux443ux445-ux431ux438ux43dux430ux440ux43dux44bux445-ux43fux440ux438ux437ux43dux430ux43aux43eux432-6}
+\begin{block}{Двусторонний тест}
+\phantomsection\label{ux434ux432ux443ux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442}
+Для тестирования \(H_0: p_1 - p_2 = 0\) против
+\(H_1: p_1 - p_2 \neq 0\):
+
+\begin{itemize}
+    \item Распределение \textit{при нулевой гипотезе}:
+    $$
+    \colorbox{red!20}{$D \sim \mathcal{N} \left( 0, \quad  p_c(1-p_c) \left(\frac{1}{n} + \frac{1}{m}\right) \right)$}
+    $$
+    
+    \item $z$-статистика:
+    $$
+    z_{\text{score}} = \colorbox{red!20}{$\frac{\tilde{p}_1 - \tilde{p}_2}{\sqrt{p_{c}(1-p_{c}) \left(\frac{1}{n} + \frac{1}{m}\right)}}$}
+    $$
+    
+    \item Объединённая доля:
+    $$
+    p_{c} = \frac{\tilde{p}_1 n + \tilde{p}_2 m}{n + m}
+    $$
+    
+    \item Правило принятия решения: Отклонить $H_0$, если $|z_{\text{score}}| > z_{\alpha/2}$.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Тестирование гипотез о разности долей двух бинарных
+признаков}
+\phantomsection\label{ux442ux435ux441ux442ux438ux440ux43eux432ux430ux43dux438ux435-ux433ux438ux43fux43eux442ux435ux437-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux434ux43eux43bux435ux439-ux434ux432ux443ux445-ux431ux438ux43dux430ux440ux43dux44bux445-ux43fux440ux438ux437ux43dux430ux43aux43eux432-7}
+\begin{block}{Пример 2: решение}
+\phantomsection\label{ux43fux440ux438ux43cux435ux440-2-ux440ux435ux448ux435ux43dux438ux435}
+\begin{itemize}
+    \item \textbf{Гипотезы}: $H_0: p_A = p_B$ против $H_1: p_A \neq p_B$ (двусторонний тест)
+    
+    \item \textbf{Данные}: $n = 200$, $m = 200$, $\tilde{p}_A = 0.85$, $\tilde{p}_B = 0.78$, $\alpha = 0.05$
+    
+    \item \textbf{Объединённая доля}:
+    $$
+    p_c = \frac{0.85 \cdot 200 + 0.78 \cdot 200}{200 + 200} = \frac{170 + 156}{400} = 0.815
+    $$
+    
+    \item \textbf{$z$-статистика}: $z_{0.025} = 1.96$
+    $$
+    z_{\text{score}} = \frac{0.85 - 0.78}{\sqrt{0.815 \cdot 0.185 \cdot \left(\frac{1}{200} + \frac{1}{200}\right)}} = \frac{0.07}{\sqrt{0.151 \cdot 0.01}} \approx 1.80
+    $$
+    
+    \item \textbf{Решение}: $|z_{\text{score}}| = 1.80 < z_{0.025} = 1.96$, поэтому не отклоняем $H_0$.
+    
+    \item \textbf{Вывод}: Результаты тестирования не предоставляют достаточных статистически значимых оснований для отклонения нулевой гипотезы. Нет достаточных оснований утверждать, что существует статистически значимая разница в уровне удовлетворённости клиентов между двумя локациями.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности математических ожиданий при
+неизвестных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445}
+\begin{block}{Точечная оценка разности математических ожиданий}
+\phantomsection\label{ux442ux43eux447ux435ux447ux43dux430ux44f-ux43eux446ux435ux43dux43aux430-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439}
+\begin{itemize}
+    \item Предположим, у нас есть две независимые выборки: $\mathcal{X} = \{X_1, \ldots, X_n\}$, $\mathcal{Y} = \{Y_1, \ldots, Y_m\}$. Характеристики называем $\mu_X \equiv E[X_i]$, $\sigma_X^2 \equiv Var[X_i]$, и соответственно $\mu_Y \equiv E[Y_i]$, $\sigma_Y^2 \equiv Var[Y_i]$
+    \item Нас интересует разность истинных математических ожиданий:
+    $$
+      \theta = \mu_X - \mu_Y
+    $$
+
+    \item Введём точечную оценку $\hat{\theta} = \bar{X} - \bar{Y}$ — разность двух выборочных средних.
+    \item Свойства точечной оценки: $E[\hat{\theta}] = \mu_X - \mu_Y$, $Var[\hat{\theta}] = \frac{\sigma^2_X}{n} + \frac{\sigma^2_Y}{m}$.
+
+    \item При $n,\, m > 30$ работает ЦПТ и распределение точечной оценки для $\theta$:
+    \begin{equation*}
+    \hat{\theta} \sim \mathcal{N} \left(\mu_X - \mu_Y, \, \frac{\sigma^2_X}{n} + \frac{\sigma^2_Y}{m}   \right)
+    \end{equation*}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности математических ожиданий при
+неизвестных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-1}
+\begin{block}{Пример 3: левосторонний тест}
+\phantomsection\label{ux43fux440ux438ux43cux435ux440-3-ux43bux435ux432ux43eux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442}
+Интернет-магазин тестирует новый дизайн сайта против текущего дизайна.
+Вопрос: увеличивает ли новый дизайн среднюю стоимость заказа?
+
+\begin{itemize}
+    \item Изменения в дизайне сайта могут значительно повлиять на поведение пользователей и выручку. Даже небольшие улучшения в средней стоимости заказа могут привести к существенному увеличению доходов.
+    \item Данные:
+    \begin{itemize}
+        \item Текущий дизайн (A): $n = 100$ клиентов, $\bar{x}_A = 85$ долларов, $s_A = 15$ долларов
+        \item Новый дизайн (B): $m = 100$ клиентов, $\bar{x}_B = 92$ доллара, $s_B = 18$ долларов
+    \end{itemize}
+    \item Гипотезы:
+    \begin{itemize}
+        \item $H_0: \mu_A = \mu_B$ (нет разницы в средней стоимости заказа)
+        \item $H_1: \mu_A < \mu_B$ (новый дизайн увеличивает среднюю стоимость заказа)
+    \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности математических ожиданий при
+неизвестных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-2}
+\begin{block}{Односторонний тест (тест Уэлча)}
+\phantomsection\label{ux43eux434ux43dux43eux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442-ux442ux435ux441ux442-ux443ux44dux43bux447ux430}
+\begin{itemize}
+    \item Идея: мы можем ввести новую случайную величину $D = \bar{X} - \bar{Y}$
+    \item Её параметры: $E[D] = \mu_X - \mu_Y$, $Var[D] = \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m}$
+    \item Если $\mu_X = \mu_Y$, то $E[D] = 0$, если $\mu_X < \mu_Y$, то $E[D] < 0$
+    \item Таким образом, задача сравнения $\mu_X$ с $\mu_Y$ сводится к тестированию математического ожидания одной случайной величины $D$:
+    $$
+    H_0: \; E[D] = 0, \; H_1: \; E[D] < 0
+    $$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности математических ожиданий при
+неизвестных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-3}
+\begin{block}{Односторонний тест (тест Уэлча)}
+\phantomsection\label{ux43eux434ux43dux43eux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442-ux442ux435ux441ux442-ux443ux44dux43bux447ux430-1}
+Для тестирования \(H_0: \mu_X - \mu_Y = 0\) против
+\(H_1: \mu_X - \mu_Y < 0\):
+
+\begin{itemize}
+    \item Распределение \textit{при нулевой гипотезе}: $\colorbox{red!20}{$\bar{X} - \bar{Y} \sim \mathcal{N}\left(0, \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m}\right)$}$, $\colorbox{red!20}{$\frac{\bar{X} - \bar{Y}}{\sqrt{ \frac{S_X^2}{n} + \frac{S_Y^2}{m}}} \sim t_{k}$}$
+    
+    \item Число степеней свободы $k$ задаётся формулой:
+    $$
+    k \approx \frac{(V_X + V_Y)^2}{\frac{V_X^2}{n-1} + \frac{V_Y^2}{m-1}}, \text{ где } V_X = \frac{S_X^2}{n}, \; V_Y = \frac{S_Y^2}{m}
+    $$
+    
+    \item Используем $t$-статистику:
+    $$
+    t_{\text{score}} = \colorbox{red!20}{$\frac{\bar{x} - \bar{y}}{\sqrt{ \frac{s_X^2}{n} + \frac{s_Y^2}{m}}}$}
+    $$
+    
+    \item Правило принятия решения: Отклонить $H_0$, если $t_{\text{score}} < -t_{(k, \alpha)}$ в левостороннем тесте или если $t_{\text{score}} > t_{(k, \alpha)}$ в правостороннем тесте.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности математических ожиданий при
+неизвестных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-4}
+\begin{block}{Пример 3: решение}
+\phantomsection\label{ux43fux440ux438ux43cux435ux440-3-ux440ux435ux448ux435ux43dux438ux435}
+\begin{itemize}
+    \item \textbf{Гипотезы}: $H_0: \mu_A = \mu_B$ против $H_1: \mu_A < \mu_B$ (левосторонний тест)
+    
+    \item \textbf{Данные}: $n = 100$, $m = 100$, $\bar{x}_A = 85$, $\bar{x}_B = 92$, $s_A = 15$, $s_B = 18$, $\alpha = 0.05$
+    
+    \item \textbf{Степени свободы}:
+    $$
+    V_A = \frac{15^2}{100} = 2.25, \quad V_B = \frac{18^2}{100} = 3.24
+    $$
+    $$
+    k = \frac{(2.25 + 3.24)^2}{\frac{2.25^2}{99} + \frac{3.24^2}{99}} = \frac{30.14}{0.051 + 0.106} \approx 192
+    $$
+    
+    \item \textbf{$t$-статистика}: $t_{(192, 0.05)} \approx 1.653$ (используем $t_{(200, 0.05)}$ как приближение)
+    $$
+    t_{\text{score}} = \frac{85 - 92}{\sqrt{\frac{15^2}{100} + \frac{18^2}{100}}} = \frac{-7}{\sqrt{2.25 + 3.24}} = \frac{-7}{2.34} \approx -2.99
+    $$
+    
+    \item \textbf{Решение}: $t_{\text{score}} = -2.99 < -t_{(192, 0.05)} \approx -1.653$, поэтому отклоняем $H_0$.
+    
+    \item \textbf{Вывод}: Имеются достаточно статистически значимые основания для утверждения, что новый дизайн увеличивает среднюю стоимость заказа по сравнению с текущим дизайном. Консервативная гипотеза отклоняется в пользу альтернативной.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности математических ожиданий при
+неизвестных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-5}
+\begin{block}{Пример 4: двусторонний тест}
+\phantomsection\label{ux43fux440ux438ux43cux435ux440-4-ux434ux432ux443ux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442}
+Производственная компания сравнивает эффективность производства между
+двумя заводами. Вопрос: есть ли значимая разница в среднем времени
+производства единицы продукции?
+
+\begin{itemize}
+    \item Эффективность производства напрямую влияет на затраты и сроки доставки клиентам. Понимание различий в производительности помогает в распределении ресурсов и оптимизации процессов.
+    \item Данные:
+    \begin{itemize}
+        \item Завод A: $n = 100$ единиц, $\bar{x}_A = 45$ минут, $s_A = 8$ минут
+        \item Завод B: $m = 80$ единиц, $\bar{x}_B = 42$ минуты, $s_B = 7$ минут
+    \end{itemize}
+    \item Гипотезы:
+    \begin{itemize}
+        \item $H_0: \mu_A = \mu_B$ (нет разницы в среднем времени производства)
+        \item $H_1: \mu_A \neq \mu_B$ (разные средние времена производства)
+    \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности математических ожиданий при
+неизвестных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-6}
+\begin{block}{Двусторонний тест (тест Уэлча)}
+\phantomsection\label{ux434ux432ux443ux441ux442ux43eux440ux43eux43dux43dux438ux439-ux442ux435ux441ux442-ux442ux435ux441ux442-ux443ux44dux43bux447ux430}
+Для тестирования \(H_0: \mu_X - \mu_Y = 0\) против
+\(H_1: \mu_X - \mu_Y \neq 0\):
+
+\begin{itemize}
+    \item Распределение \textit{при нулевой гипотезе}: $\colorbox{red!20}{$\bar{X} - \bar{Y} \sim \mathcal{N}\left(0, \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m}\right)$}$, $\colorbox{red!20}{$\frac{\bar{X} - \bar{Y}}{\sqrt{ \frac{S_X^2}{n} + \frac{S_Y^2}{m}}} \sim t_{k}$}$
+    
+    \item Число степеней свободы:
+    $$
+    k \approx \frac{(V_X + V_Y)^2}{\frac{V_X^2}{n-1} + \frac{V_Y^2}{m-1}}, \text{ где } V_X = \frac{S_X^2}{n}, \; V_Y = \frac{S_Y^2}{m}
+    $$
+    
+    \item $t$-статистика:
+    $$
+    t_{\text{score}} = \colorbox{red!20}{$\frac{\bar{x} - \bar{y}}{\sqrt{ \frac{s_X^2}{n} + \frac{s_Y^2}{m}}}$}
+    $$
+    
+    \item Правило принятия решения: Отклонить $H_0$, если $|t_{\text{score}}| > t_{(k, \alpha/2)}$.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности математических ожиданий при
+неизвестных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-7}
+\begin{block}{Пример 4: решение}
+\phantomsection\label{ux43fux440ux438ux43cux435ux440-4-ux440ux435ux448ux435ux43dux438ux435}
+\begin{itemize}
+    \item \textbf{Гипотезы}: $H_0: \mu_A = \mu_B$ против $H_1: \mu_A \neq \mu_B$ (двусторонний тест)
+    
+    \item \textbf{Данные}: $n = 100$, $m = 80$, $\bar{x}_A = 45$, $\bar{x}_B = 42$, $s_A = 8$, $s_B = 7$, $\alpha = 0.05$
+    
+    \item \textbf{Степени свободы}:
+    $$
+    V_A = \frac{8^2}{100} = 0.64, \quad V_B = \frac{7^2}{80} = 0.613
+    $$
+    $$
+    k = \frac{(0.64 + 0.613)^2}{\frac{0.64^2}{99} + \frac{0.613^2}{79}} = \frac{1.57}{0.0041 + 0.0048} \approx 175
+    $$
+    
+    \item \textbf{$t$-статистика}: $t_{(175, 0.025)} \approx 1.976$ (используем $t_{(200, 0.025)}$ как приближение)
+    $$
+    t_{\text{score}} = \frac{45 - 42}{\sqrt{\frac{8^2}{100} + \frac{7^2}{80}}} = \frac{3}{\sqrt{0.64 + 0.613}} = \frac{3}{1.12} \approx 2.68
+    $$
+    
+    \item \textbf{Решение}: $|t_{\text{score}}| = 2.68 > t_{(175, 0.025)} \approx 1.976$, поэтому отклоняем $H_0$.
+    
+    \item \textbf{Вывод}: Имеются достаточно статистически значимые основания для утверждения, что существует разница в среднем времени производства между двумя заводами. Консервативная гипотеза отклоняется в пользу альтернативной.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности матожиданий при неизвестных, но
+предположительно равных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux43dux43e-ux43fux440ux435ux434ux43fux43eux43bux43eux436ux438ux442ux435ux43bux44cux43dux43e-ux440ux430ux432ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445}
+\begin{block}{Точечная оценка разности математических ожиданий}
+\phantomsection\label{ux442ux43eux447ux435ux447ux43dux430ux44f-ux43eux446ux435ux43dux43aux430-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux435ux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43eux436ux438ux434ux430ux43dux438ux439-1}
+\begin{itemize}
+    \item Предположим, у нас есть две независимые выборки: $\mathcal{X} = \{X_1, \ldots, X_n\}$, $\mathcal{Y} = \{Y_1, \ldots, Y_m\}$. Характеристики называем $\mu_X \equiv E[X_i]$, $\sigma_X^2 \equiv Var[X_i]$, и соответственно $\mu_Y \equiv E[Y_i]$, $\sigma_Y^2 \equiv Var[Y_i]$
+    \item Дисперсии $\sigma_X^2$ и $\sigma_Y^2$ \textbf{неизвестны}, но для простоты предполагаем, что они равны: $\sigma_X^2 = \sigma_Y^2 = \sigma^2$.
+    \item Нас интересует разность истинных математических ожиданий:
+    $$
+      \theta = \mu_X - \mu_Y
+    $$
+
+    \item Введём точечную оценку $\hat{\theta} = \bar{X} - \bar{Y}$ — разность двух выборочных средних.
+    \item Свойства точечной оценки: $E[\hat{\theta}] = \mu_X - \mu_Y$, $Var[\hat{\theta}] = \sigma^2 \left(\frac{1}{n} + \frac{1}{m} \right)$.
+
+    \item При $n,\, m > 30$ работает ЦПТ и распределение точечной оценки для $\theta$:
+    \begin{equation*}
+    \hat{\theta} \sim \mathcal{N} \left(\mu_X - \mu_Y, \, \sigma^2 \left(\frac{1}{n} + \frac{1}{m} \right) \right)
+    \end{equation*}
+    \item Проблема: мы не можем использовать $\sigma^2$ при тестировании гипотез, так как дисперсия неизвестна!
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности матожиданий при неизвестных, но
+предположительно равных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux43dux43e-ux43fux440ux435ux434ux43fux43eux43bux43eux436ux438ux442ux435ux43bux44cux43dux43e-ux440ux430ux432ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-1}
+\begin{block}{Объединенная выборочная дисперсия}
+\phantomsection\label{ux43eux431ux44aux435ux434ux438ux43dux435ux43dux43dux430ux44f-ux432ux44bux431ux43eux440ux43eux447ux43dux430ux44f-ux434ux438ux441ux43fux435ux440ux441ux438ux44f}
+\begin{itemize}
+    \item Решение: заменяем неизвестную дисперсию $\sigma^2$ на её оценку — объединённую выборочную дисперсию $S_p^2$, и используем $t$-распределение вместо нормального.
+    
+    \item Вводим $t$-распределённую переменную:
+    $$
+    \frac{\bar{X} - \bar{Y} - (\mu_X - \mu_Y)}{S_p \sqrt{\frac{1}{n} + \frac{1}{m}}} \sim t_{(n+m-2)}
+    $$
+    
+    \item Объединённая дисперсия $S_p^2$ — это взвешенное среднее выборочных дисперсий:
+    $$
+    S_p^2 = \frac{(n-1) S_X^2 + (m-1) S_Y^2}{n+m-2}
+    $$
+    
+    \item \textbf{Интуиция}: мы "объединяем" информацию о дисперсии из обеих выборок, используя веса, пропорциональные размерам выборок минус один (степени свободы). Идея в том, что чем больше размер выборки, тем точнее реализации выборочной дисперсии, и тем больше будет вес у этого слагаемого в сумме.
+    
+    \item Число степеней свободы: $n+m-2$ (сумма степеней свободы обеих выборок).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Гипотезы о разности матожиданий при неизвестных, но
+предположительно равных дисперсиях}
+\phantomsection\label{ux433ux438ux43fux43eux442ux435ux437ux44b-ux43e-ux440ux430ux437ux43dux43eux441ux442ux438-ux43cux430ux442ux43eux436ux438ux434ux430ux43dux438ux439-ux43fux440ux438-ux43dux435ux438ux437ux432ux435ux441ux442ux43dux44bux445-ux43dux43e-ux43fux440ux435ux434ux43fux43eux43bux43eux436ux438ux442ux435ux43bux44cux43dux43e-ux440ux430ux432ux43dux44bux445-ux434ux438ux441ux43fux435ux440ux441ux438ux44fux445-2}
+Для тестирования \(H_0: \mu_X - \mu_Y = 0\) против
+\(H_1: \mu_X - \mu_Y \begin{array}{c}
+> \\[-0.8em]
+<
+\end{array} 0\) или \(H_1: \mu_X \neq \mu_Y\).
+
+\begin{itemize}
+    \item Распределение \textit{при нулевой гипотезе}: $\colorbox{red!20}{$\bar{X} - \bar{Y} \sim \mathcal{N}\left(0, \sigma^2\left(\frac{1}{n} + \frac{1}{m}\right)\right)$}$, $\colorbox{red!20}{$\frac{\bar{X} - \bar{Y}}{S_p \sqrt{\frac{1}{n} + \frac{1}{m}}} \sim t_{(n+m-2)}$}$
+    
+    \item Используем $t$-статистику:
+    $$
+    t_{\text{score}} = \colorbox{red!20}{$\frac{\bar{x} - \bar{y}}{s_p \sqrt{\frac{1}{n} + \frac{1}{m}}}$}
+    $$
+    
+    \item где $s_p^2$ — реализация объединённой дисперсии:
+    $$
+    s_p^2 = \frac{(n-1) s_X^2 + (m-1) s_Y^2}{n+m-2}
+    $$
+    
+    \item Правило принятия решения: Отклонить $H_0$, если $t_{\text{score}} < -t_{(n+m-2, \alpha)}$ в левостороннем тесте или если $t_{\text{score}} > t_{(n+m-2, \alpha)}$ в правостороннем тесте.
+    \item Для двустороннего теста: Отклонить $H_0$, если $|t_{\text{score}}| > t_{(n+m-2, \alpha/2)}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Модель простой линейной регрессии}
+\phantomsection\label{ux43cux43eux434ux435ux43bux44c-ux43fux440ux43eux441ux442ux43eux439-ux43bux438ux43dux435ux439ux43dux43eux439-ux440ux435ux433ux440ux435ux441ux441ux438ux438}
+Модель простой линейной регрессии предполагает, что существует прямая с
+коэффициентом сдвига \(\alpha\) и наклоном \(\beta\), называемая
+истинной или генеральной линией регрессии. Когда фиксируется значение
+независимой переменной \(x\) и делается наблюдение зависимой переменной
+\(y\):
+
+\[
+y = \alpha + \beta x + \varepsilon
+\]
+
+Предполагаем, что некоторая случайная величина \(Y\) зависит от \(X\)
+линейным образом. Может не быть сильной линейной зависимости, но по
+крайней мере есть тренд линейного изменения одного параметра
+относительно другого.
+\end{frame}
+
+\begin{frame}{Основные предположения модели}
+\phantomsection\label{ux43eux441ux43dux43eux432ux43dux44bux435-ux43fux440ux435ux434ux43fux43eux43bux43eux436ux435ux43dux438ux44f-ux43cux43eux434ux435ux43bux438}
+\begin{enumerate}
+    \item Распределение $\varepsilon$ при любом конкретном значении $x$ имеет среднее значение $0$. То есть $\mu_{\varepsilon} = 0$.
+    \item Стандартное отклонение ($\sigma$) величины $\varepsilon$ (которое описывает разброс её распределения) одинаково для любого конкретного значения $x$.
+    \item Распределение $\varepsilon$ при любом конкретном значении $x$ нормальное, т.е. $\varepsilon \sim \mathcal{N}(0, \sigma^2)$.
+    \item Случайные отклонения $\varepsilon_1, \varepsilon_2, \ldots, \varepsilon_n$, связанные с разными наблюдениями, независимы друг от друга.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Иллюстрация модели регрессии}
+\phantomsection\label{ux438ux43bux43bux44eux441ux442ux440ux430ux446ux438ux44f-ux43cux43eux434ux435ux43bux438-ux440ux435ux433ux440ux435ux441ux441ux438ux438}
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../files/reg_model_1.png}}
+
+}
+
+\caption{Иллюстрация модели регрессии}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Поведение при различных значениях \(\sigma\)}
+\phantomsection\label{ux43fux43eux432ux435ux434ux435ux43dux438ux435-ux43fux440ux438-ux440ux430ux437ux43bux438ux447ux43dux44bux445-ux437ux43dux430ux447ux435ux43dux438ux44fux445-sigma}
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../files/reg_model_2.png}}
+
+}
+
+\caption{Поведение при различных значениях \(\sigma\)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Точечная оценка параметров}
+\phantomsection\label{ux442ux43eux447ux435ux447ux43dux430ux44f-ux43eux446ux435ux43dux43aux430-ux43fux430ux440ux430ux43cux435ux442ux440ux43eux432}
+\begin{block}{МНК: Метод Наименьших Квадратов}
+\phantomsection\label{ux43cux43dux43a-ux43cux435ux442ux43eux434-ux43dux430ux438ux43cux435ux43dux44cux448ux438ux445-ux43aux432ux430ux434ux440ux430ux442ux43eux432}
+\textbf{Выборочные средние:} \[
+\bar{x} = \frac{1}{n} \sum \limits_{i=1}^{n} x_i, \quad \bar{y} = \frac{1}{n} \sum \limits_{i=1}^{n} y_i
+\]
+
+\textbf{Суммы квадратов:} \[
+S_{xx} = \sum (x_i - \bar{x})^2, \quad S_{yy} = \sum (y_i - \bar{y})^2, \quad S_{xy} = \sum (x_i - \bar{x})(y_i - \bar{y})
+\]
+
+\textbf{Оценки параметров:} \[
+\boxed{ \hat{\alpha} = \bar{y} - \hat{\beta} \bar{x}, \quad \hat{\beta} = \frac{S_{xy}}{S_{xx}}}
+\]
+
+\textbf{Полученная (оценочная) линейная функция:} \[
+\boxed{ \hat{y} = \hat{\alpha} + \hat{\beta} x}
+\]
+\end{block}
+\end{frame}
+
+\begin{frame}{Коэффициент корреляции}
+\phantomsection\label{ux43aux43eux44dux444ux444ux438ux446ux438ux435ux43dux442-ux43aux43eux440ux440ux435ux43bux44fux446ux438ux438}
+\textbf{Выборочный коэффициент корреляции}:
+
+\[
+r = \frac{\sum \limits_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum \limits_{i=1}^{n} (x_i - \bar{x})^2 \sum \limits_{i=1}^{n} (y_i - \bar{y})^2}} = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}
+\]
+
+Можно использовать его для двустороннего теста, есть ли связь между
+переменными в генеральной совокупности.
+
+\textbf{Распределение:}
+
+Следующая функция коэффициента корреляции ведёт себя как
+\(t\)-переменная Стьюдента с \((n-2)\) степенями свободы (при нулевой
+гипотезе \(\rho = 0\)):
+
+\[
+\colorbox{red!20}{$r \sqrt{\frac{n-2}{1 - r^2}} \sim t_{(n-2)}$}
+\]
+\end{frame}
+
+\begin{frame}{Тест независимости}
+\phantomsection\label{ux442ux435ux441ux442-ux43dux435ux437ux430ux432ux438ux441ux438ux43cux43eux441ux442ux438}
+\textbf{Гипотезы:}
+
+\begin{align*}
+H_0: \rho = 0 & \quad (\text{Нет корреляции между переменными в генеральной совокупности}) \\
+H_1: \rho \neq 0 & \quad (\text{Есть корреляция между переменными в генеральной совокупности})
+\end{align*}
+
+\textbf{Правило принятия решения:}
+
+\begin{itemize}
+    \item Подставляя выборочное значение $r$, которое мы получили, вычисляем $t_{\text{score}}$ теста:
+    $$
+    t_{\text{score}} = \colorbox{red!20}{$r \sqrt{\frac{n-2}{1 - r^2}}$}
+    $$
+    \item После этого действуем обычным образом, сравнивая координаты критической точки $t_{(n-2, \alpha/2)}$ и полученный $t_{\text{score}}$ теста.
+    \item Отклонить $H_0$, если $|t_{\text{score}}| > t_{(n-2, \alpha/2)}$
+\end{itemize}
+\end{frame}
+
+
+
+
+\end{document}

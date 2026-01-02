@@ -1,0 +1,81 @@
+\documentclass[landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[margin=0.5cm, paperwidth=29.7cm, paperheight=21cm]{geometry}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+
+% Убираем все отступы и границы
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\footskip}{0pt}
+
+% Увеличиваем размер шрифта
+\fontsize{14pt}{17pt}\selectfont
+
+% Увеличиваем размер математических формул
+\DeclareMathSizes{14}{20}{16}{14}
+
+\begin{document}
+\pagestyle{empty}
+\noindent
+\vspace{0.8cm}
+
+% Разделение на 2 горизонтальные области
+\begin{tikzpicture}[remember picture, overlay]
+    % Вертикальная линия посередине
+    \draw[very thin, gray] ([xshift=14.85cm]current page.north west) -- ([xshift=14.85cm]current page.south west);
+\end{tikzpicture}
+
+% Две вертикальные колонки: Варианты 1 и 3 слева, Варианты 2 и 4 справа
+\noindent
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+
+    \textbf{1 вариант: Отчество на А}
+
+    \begingroup\Large
+    Предположим, у нас есть две независимые случайные выборки: $\{X_1 , \ldots , X_4\}$, каждая $X_i \sim \mathcal{N}(1, 4)$, и $\{Y_1 , \ldots , Y_5\}$, каждая $Y_i \sim \mathcal{N}(2, 10)$.
+
+    Пусть $$W = \frac{\bar{X} + \bar{Y}}{2} + X_1$$
+
+    Найдите вероятность $P(W < 2)$.
+    \endgroup
+
+    \vspace{3.5cm}
+
+    \textbf{2 вариант: Отчество от Б до Е:}
+
+    \begingroup\Large
+    Предположим, у нас есть две независимые случайные выборки: $\{X_1 , \ldots , X_{12}\}$, каждая $X_i \sim \mathcal{N}(2, \sigma^2)$, и $\{Y_1 , \ldots , Y_3\}$, каждая $Y_i \sim \mathcal{N}(3, 2 \sigma^2)$.
+
+    Найдите вероятность $P(W < -1 + \frac{\sigma}{2})$, где $W = \bar{X} - \bar{Y}$.
+    \endgroup
+
+\end{minipage}
+\hfill
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+    
+    \textbf{3 вариант: Отчество от Ж до Н:}
+
+    \begingroup\Large
+    Предположим, у нас есть две независимые случайные выборки: $\{X_1 , \ldots , X_4\}$, каждая $X_i \sim \mathcal{N}(1, 4)$, и $\{Y_1 , \ldots , Y_5\}$, каждая $Y_i \sim \mathcal{N}(2, 10)$.
+
+    Найдите точку $k$, такую что $P(\bar{X} + \bar{Y} > k) = 0.8$.
+    \endgroup
+
+    \vspace{3.5cm}
+
+    \textbf{4 вариант: Отчество от О до Я:}
+
+    \begingroup\Large
+    Предположим, у нас есть две независимые случайные выборки: $\{X_1 , \ldots , X_{12}\}$, каждая $X_i \sim \mathcal{N}(2, \sigma^2)$, и $\{Y_1 , \ldots , Y_3\}$, каждая $Y_i \sim \mathcal{N}(3, 2 \sigma^2)$.
+
+    Найдите вероятность $P(W < 1 + \sigma)$, где $W = \bar{Y} - \bar{X}$.
+    \endgroup
+\end{minipage}
+
+\end{document}

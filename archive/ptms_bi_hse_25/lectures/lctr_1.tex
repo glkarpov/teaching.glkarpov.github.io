@@ -1,0 +1,168 @@
+\documentclass[landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[margin=0.5cm, paperwidth=29.7cm, paperheight=21cm]{geometry}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Убираем все отступы и границы
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\footskip}{0pt}
+
+% Увеличиваем размер шрифта
+\fontsize{14pt}{17pt}\selectfont
+
+\begin{document}
+\pagestyle{empty}
+\noindent
+\vspace{0.8cm}
+
+% Разделение на 2 горизонтальные области
+\begin{tikzpicture}[remember picture, overlay]
+    % Вертикальная линия посередине
+    \draw[very thin, gray] ([xshift=14.85cm]current page.north west) -- ([xshift=14.85cm]current page.south west);
+\end{tikzpicture}
+
+% Верхняя горизонтальная область: Варианты 1 и 2
+\noindent
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+\textbf{Вариант 1: ($-\infty$, Гу]}
+
+Случайная величина $X$ имеет функцию плотности, заданную формулой
+$$
+f_X(x)= c x^2(x+1)
+$$
+определенную на области $0<x<1$.
+\begin{enumerate}
+    \item Найдите нормировочную константу $c$, при котором это является функцией плотности.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $P(-4 < X < 0.5)$, $P(0.5 < X < 2 \mid X>0.25)$.
+    \item Вычислите $E[X]$ и $Var[X]$.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\textbf{Вариант 3: (Ли, Се]}
+
+Случайная величина $X$ имеет функцию плотности, заданную формулой
+$$
+f_X(x) = k(3x+1)(x+1)
+$$
+определенную на области $0<x<1$.
+\begin{enumerate}
+    \item Найдите нормировочную константу $k$, при котором это является функцией плотности.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $P(-10<X<0.5)$, $P(X > 0.5 \mid X > -100)$.
+    \item Вычислите $E[X]$ и $Var[X]$.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+\textbf{Вариант 2: (Гу, Ли]}
+
+Случайная величина $X$ имеет функцию плотности, заданную формулой
+$$
+f_X(x) = c x(x+1)
+$$
+определенную на области $0<x<1$.
+\begin{enumerate}
+    \item Найдите нормировочную константу $c$, при котором это является функцией плотности.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $P(X>0.25)$, $P(X < 0.25 \mid X < 0.5)$.
+    \item Вычислите $E[X]$ и $Var[X]$.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\textbf{Вариант 4: (Се, $+\infty$]}
+
+Случайная величина $X$ имеет функцию плотности, заданную формулой
+$$
+f_X(x) = kx^2(1-x)
+$$
+определенную на области $0<x<1$.
+\begin{enumerate}
+    \item Найдите нормировочную константу $k$, при котором это является функцией плотности.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $P(0.25<X<0.75)$, $P(-2<X<0.5)$.
+    \item Вычислите $E[X]$ и $Var[X]$.
+\end{enumerate}
+\end{minipage}
+
+\newpage
+
+% Новая страница в том же стиле
+\noindent
+\vspace{0.8cm}
+
+% Разделение на 2 горизонтальные области
+\begin{tikzpicture}[remember picture, overlay]
+    % Вертикальная линия посередине
+    \draw[very thin, gray] ([xshift=14.85cm]current page.north west) -- ([xshift=14.85cm]current page.south west);
+\end{tikzpicture}
+
+% Две вертикальные колонки: Варианты 1 и 3 слева, Варианты 2 и 4 справа
+\noindent
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+
+% src: UoL, st104b, 2015, zone A, question 3.
+Случайная величина $X$ имеет функцию плотности, заданную формулой:
+
+$$
+    f_X(x) = \beta x + \gamma x^2,
+$$
+
+определенную на области $0 < x < 1$, и равную $0$ вне этой области. Известно значение математического ожидания $E[X]$.
+
+\begin{enumerate}
+    \item Найдите корректные значения параметров $\beta$ и $\gamma$, при которых это является функцией плотности.
+    \item Вычислите $E[\frac{1}{X}]$.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $p_1$, и $p_2$.
+\end{enumerate}
+
+\begin{itemize}
+    \item 1 вариант: имя на \textbf{A}, $E[X] = \frac{25}{36}$, $p_1 = P \{1/4 < X < 3/4  \}$,
+    
+    $p_2 = P \{3/4 < X < 4/3 | X > 1/2 \}$
+    \item 2 вариант: имя на \textbf{Б-З}, $E[X] = \frac{17}{24}$, $p_1 = P \{1/2 < X < 3/2  \}$,
+    
+    $p_2 = P \{1/4 < X < 3/4 | X < 1/2 \}$
+\end{itemize}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t][18.5cm][t]{14.35cm}
+
+
+    % src: UoL, st104b, 2005, zone B, section B.
+    Случайная величина $X$ имеет функцию плотности, заданную формулой:
+    
+    $$ f_X(x) = a + bx^2, $$
+    
+    определенную на области $0 < x < 2$, и равную $0$ вне этой области.
+    Известно значение математического ожидания $E[X]$.
+    \begin{enumerate}
+        \item Найдите корректные значения параметров $a$ и $b$, 
+        \item Постройте функцию распределения случайной величины $X$.
+        \item Вычислите $Var[X]$.
+        \item Вычислите вероятности $p_1$, и $p_2$.
+    \end{enumerate}
+    
+    \begin{itemize}
+        \item 3 вариант: имя на \textbf{И-М}, $E[X] = \frac{3}{2}$, $p_1 = P \{ X < 1/2  \}$,
+        
+        $p_2 = P \{1 < X < 5/2 | X > 1/2 \}$
+        \item 4 вариант: имя на \textbf{Н-Я}, $E[X] = \frac{7}{6}$, $p_1 = P \{ X > 1\}$,
+        
+        $p_2 = P \{1/2 < X < 2 | X < 1 \}$
+    \end{itemize}
+
+\end{minipage}
+
+\end{document}
+

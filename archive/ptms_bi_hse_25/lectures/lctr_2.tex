@@ -1,0 +1,104 @@
+\documentclass[landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[margin=0.5cm, paperwidth=29.7cm, paperheight=21cm]{geometry}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Убираем все отступы и границы
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\footskip}{0pt}
+
+\begin{document}
+\pagestyle{empty}
+\noindent
+\vspace{0.3cm}
+
+% Разделение на 4 равные области
+\begin{tikzpicture}[remember picture, overlay]
+    % Вертикальная линия посередине
+    \draw[very thin, gray] (current page.north) ++(0,-10.3cm) -- (current page.south) ++(0,10.3cm);
+    % Горизонтальная линия посередине
+    \draw[very thin, gray] (current page.west) ++(14.85cm,0) -- (current page.east) ++(-14.85cm,0);
+\end{tikzpicture}
+
+% Верхняя часть: два квадранта рядом
+\noindent
+\begin{minipage}[t][9.5cm][t]{14.35cm}
+\textbf{Вариант 1: ($-\infty$, Гу]}
+
+Случайная величина $X$ имеет функцию плотности, заданную формулой
+$$
+f_X(x)= c x^2(x+1)
+$$
+определенную на области $0<x<1$.
+\begin{enumerate}
+    \item Найдите нормировочную константу $c$, при котором это является функцией плотности.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $P(-4 < X < 0.5)$, $P(0.5 < X < 2 \mid X>0.25)$.
+    \item Вычислите $E[X]$ и $Var[X]$.
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}[t][9.5cm][t]{14.35cm}
+\textbf{Вариант 2: (Гу, Ко]}
+
+Случайная величина $X$ имеет функцию плотности, заданную формулой
+$$
+f_X(x) = c x(x+1)
+$$
+определенную на области $0<x<1$.
+\begin{enumerate}
+    \item Найдите нормировочную константу $c$, при котором это является функцией плотности.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $P(X>0.25)$, $P(X < 0.25 \mid X < 0.5)$.
+    \item Вычислите $E[X]$ и $Var[X]$.
+\end{enumerate}
+
+\end{minipage}
+
+\vspace{0.2cm}
+
+% Нижняя часть: два квадранта рядом
+\noindent
+\begin{minipage}[t][9.5cm][t]{14.35cm}
+\textbf{Вариант 3: (Ко, По]}
+
+Случайная величина $X$ имеет функцию плотности, заданную формулой
+$$
+f_X(x) = k(3x+1)(x+1)
+$$
+определенную на области $0<x<1$.
+\begin{enumerate}
+    \item Найдите нормировочную константу $k$, при котором это является функцией плотности.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $P(X>0.25)$, $P(X < 0.25 \mid X < 0.5)$.
+    \item Вычислите $E[X]$ и $Var[X]$.
+\end{enumerate}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t][9.5cm][t]{14.35cm}
+\textbf{Вариант 4: (По, $+\infty$]}
+
+Случайная величина $X$ имеет функцию плотности, заданную формулой
+$$
+f_X(x) = kx^2(1-x)
+$$
+определенную на области $0<x<1$.
+\begin{enumerate}
+    \item Найдите нормировочную константу $k$, при котором это является функцией плотности.
+    \item Постройте функцию распределения случайной величины $X$.
+    \item Вычислите вероятности $P(0.25<X<0.75)$, $P(-2<X<0.5)$.
+    \item Вычислите $E[X]$ и $Var[X]$.
+\end{enumerate}
+
+
+\end{minipage}
+
+\end{document}
+

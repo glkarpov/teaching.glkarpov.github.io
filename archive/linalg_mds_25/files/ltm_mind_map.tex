@@ -1,0 +1,169 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{mathtools}
+
+% Set margins for A4 paper
+\geometry{left=1cm, right=2cm, top=2cm, bottom=2cm}
+
+% Custom command for column vector
+\newcommand{\vtwo}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+\begin{document}
+
+\title{Mind Map: Linear Transformations and Their Matrix Representation}
+\author{}
+\date{}
+\maketitle
+
+\begin{center}
+    \begin{tikzpicture}[scale=1.4]
+        % Top notation
+        \node[above] at (4,3.5) {\Large $\varphi: \mathbb{V} \longrightarrow \mathbb{W}$};
+        
+        % V set with three elements
+        \draw[thick, fill=blue!10] (0,0) circle (2.0);
+        \node[above] at (0,2.2) {\Large $\mathbb{V}$};
+        \node[below] at (0,-2.5) {\large Basis $B = \{v_1, \,v_2\}$};
+        
+        % Elements in V
+        \fill[red] (-0.3,0.8) circle (3pt);
+        \node[left] at (-0.5,0.8) {\large $x$};
+        
+        \fill[green] (-0.3,-0.6) circle (3pt);
+        \node[below] at (-0.3,-0.8) {\large $v_1$};
+        
+        \fill[blue] (0.6,0.3) circle (3pt);
+        \node[below] at (0.6,0.1) {\large $v_2$};
+    
+        % W set with five elements (larger circle)
+        \draw[thick, fill=green!10] (8,0) circle (2.8);
+        \node[above] at (8,3.0) {\Large $\mathbb{W}$};
+        \node[below] at (8,-3.5) {\large Basis $C = \{\omega_1, \,\omega_2\}$};
+        
+        % Elements in W
+        \fill[red] (7.2,1.6) circle (3pt);
+        \node[right] at (7.4,1.6) {\large $\varphi(x)$};
+        
+        \fill[green] (7.8,-2.0) circle (3pt);
+        \node[right] at (8.0,-2.0) {\large $\varphi(v_1)$};
+        
+        \fill[blue] (6.8,0.3) circle (3pt);
+        \node[right] at (7.0,0.3) {\large $\varphi(v_2)$};
+        
+        \fill[brown] (6.6,-1.2) circle (3pt);
+        \node[left] at (6.4,-1.2) {\large $\omega_1$};
+        
+        \fill[orange] (9.4,-1.2) circle (3pt);
+        \node[right] at (9.6,-1.2) {\large $\omega_2$};
+      
+        % Arrows connecting elements
+        \draw[thick, ->] (0.1,0.8) .. controls (4.0, 1.6) .. (6.8,1.6);
+        \draw[thick, ->] (0.1,-0.6) .. controls (2.5, -1.2) and (5.0,-1.5) .. (7.6,-2.0);
+        \draw[thick, ->] (0.7,0.3) .. controls (4.5, 0.2) .. (6.6,0.3);
+    \end{tikzpicture}
+\end{center}
+
+\textbf{Initial assumptions:}
+\begin{itemize}
+    \item Let us take a look at the linear transformation $\varphi: \mathbb{V} \longrightarrow \mathbb{W}$.
+    \item Suppose, that $\mathbb{V}$ and $\mathbb{W}$ have basis sets $B$ and $C$ respectively.
+    \item For simplicity, we draw only useful for us elements of $\mathbb{V}$ and $\mathbb{W}$. Of course it could surely be infinitely many elements in each of these spaces.
+\end{itemize}
+
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+    % Top left block - Linear Transformations
+    \draw[thick, fill=blue!20, rounded corners=20pt] (-6.5,5) rectangle (-1.5,6.5);
+    \node[above] at (-4.0,6.1) {\Large\textbf{Linear Transformations}};
+    \node[below] at (-4.0,6.0) {\begin{minipage}{4.5cm}\centering
+        $\varphi: \mathbb{V} \to \mathbb{W}$ \\
+        $\varphi(\alpha u+\beta v)=\alpha \varphi(u)+\beta \varphi(v)$ \\
+    \end{minipage}};
+    
+    % Top right block - Bases
+    \draw[thick, fill=green!20, rounded corners=20pt] (0,5) rectangle (5,6.5);
+    \node[above] at (2.5,6.1) {\Large\textbf{Basis in } $\mathbb{V}$};
+    \node[below] at (2.5,6.0) {\begin{minipage}{5cm}\centering
+        $B = \{v_1, v_2\}$ \\
+        $x = x_1 v_1 + x_2 v_2, \; [x]_B = \vtwo{x_1}{x_2}$ \\
+    \end{minipage}};
+    
+    % Bottom center block - Matrix Representation
+    \draw[thick, fill=red!20, rounded corners=20pt] (-3,1.9) rectangle (3,3.5);
+    \node[below] at (0,3.3) {\begin{minipage}{8cm}\centering
+        $\varphi(x) = \varphi(x_1 v_1 + x_2 v_2) = x_1 \colorbox{red!60}{\ensuremath{\varphi(v_1)}} + x_2 \colorbox{red!60}{\ensuremath{\varphi(v_2)}}$ \\
+        \textbf{Key Idea:} We can compute $\varphi(x)$ for any $x \in \mathbb{V}$ if we just know the image of the basis vectors $\varphi(v_1)$ and $\varphi(v_2)$ \\
+    \end{minipage}};
+    
+    % Fancy arrows from top blocks to bottom
+    \draw[thick, ->, blue!60, line width=3pt] (-3.5,5) .. controls (-1.5,4.5) .. (-1,3.5);
+    \draw[thick, ->, green!60, line width=3pt] (3.5,5) .. controls (1.5,4.5) .. (1,3.5);
+
+    \draw[thick, fill=magenta!20, rounded corners=20pt] (-7.2,-1) rectangle (-0.5,1);
+    \node[above] at (-4.0, 0.6) {\Large\textbf{Basis in } $\mathbb{W}$};
+    \node[below] at (-4.0,0.5) {\begin{minipage}{6.4cm}\centering
+        $C = \{\omega_1, \omega_2\}$ \\
+        $\varphi(v_{\textcolor{red}{1}}) = a_{1\textcolor{red}{1}} \omega_{1} + a_{2\textcolor{red}{1}} \omega_{2}, \, [ \varphi(v_{\textcolor{red}{1}}) ]_C = \vtwo{a_{1\textcolor{red}{1}}}{a_{2\textcolor{red}{1}}}$ \\
+        $\varphi(v_{\textcolor{red}{2}}) = a_{1\textcolor{red}{2}} \omega_{1} + a_{2\textcolor{red}{2}} \omega_{2}, \, [ \varphi(v_{\textcolor{red}{2}}) ]_C = \vtwo{a_{1\textcolor{red}{2}}}{a_{2\textcolor{red}{2}}} $ \\
+    \end{minipage}};
+    
+    % Arrows from 3rd and 4th blocks to 5th block
+    \draw[thick, ->, red!60, line width=3pt] (0,1.9) .. controls (0,0.5) .. (0,-2.5);
+    \draw[thick, ->, magenta!60, line width=3pt] (-3.85,-1) .. controls (-2,-2) .. (-0.5,-2.45);
+
+    % Top right block - Bases
+    \draw[thick, fill=green!20, rounded corners=20pt] (-3,-8.5) rectangle (3.5,-2.5);
+    \node[above] at (0.0,-2.9) {\Large\textbf{Matrix of Linear Transformation}};
+    \node[below] at (0.0,-2.9) {\begin{minipage}{8cm}\centering
+        \begin{align*}
+            & \varphi(x) = & x_{\textcolor{red}{1}} \left( a_{\textcolor{violet}{1}\textcolor{red}{1}} \omega_{\textcolor{violet}{1}} + a_{\textcolor{violet}{2}\textcolor{red}{1}} \omega_{\textcolor{violet}{2}} \right) & + x_{\textcolor{red}{2}} \left( a_{\textcolor{violet}{1} \textcolor{red}{2}} \omega_{\textcolor{violet}{1}} + a_{\textcolor{violet}{2} \textcolor{red}{2}} \omega_{\textcolor{violet}{2}} \right) =\\
+            & & \underbrace{\left(a_{\textcolor{violet}{1}\textcolor{red}{1}} x_{\textcolor{red}{1}} + a_{\textcolor{violet}{1} \textcolor{red}{2}} x_{\textcolor{red}{2}} \right)}_{\gamma_1} \omega_{\textcolor{violet}{1}} & + \underbrace{\left( a_{\textcolor{violet}{2}\textcolor{red}{1}} x_{\textcolor{red}{1}} + a_{\textcolor{violet}{2} \textcolor{red}{2}} x_{\textcolor{red}{2}} \right)}_{\gamma_2} \omega_{\textcolor{violet}{2}}
+        \end{align*}
+        \begin{equation*}
+            \varphi(x) = \gamma_1 \omega_{\textcolor{violet}{1}} + \gamma_2 \omega_{\textcolor{violet}{2}} \text{ - decomposition of } \varphi(x) \text{ in } \mathbb{W}
+        \end{equation*}
+        \begin{equation*}
+            \left[ \varphi(x) \right]_C = \vtwo{\gamma_1}{\gamma_2} = \vtwo{a_{\textcolor{violet}{1}\textcolor{red}{1}} x_{\textcolor{red}{1}} + a_{\textcolor{violet}{1} \textcolor{red}{2}} x_{\textcolor{red}{2}}}{a_{\textcolor{violet}{2}\textcolor{red}{1}} x_{\textcolor{red}{1}} + a_{\textcolor{violet}{2} \textcolor{red}{2}} x_{\textcolor{red}{2}}} =
+            \begin{pmatrix}
+                a_{\textcolor{violet}{1}\textcolor{red}{1}} & a_{\textcolor{violet}{1} \textcolor{red}{2}} \\
+                a_{\textcolor{violet}{2}\textcolor{red}{1}} & a_{\textcolor{violet}{2} \textcolor{red}{2}} \\
+            \end{pmatrix}
+             \begin{pmatrix}
+                 x_{\textcolor{red}{1}}\\
+                 x_{\textcolor{red}{2}}
+             \end{pmatrix}
+        \end{equation*}
+        \vspace{0.3em}
+        \begin{center}
+            \colorbox{green!50}{\parbox{0.8\textwidth}{\centering
+                \begin{equation*}
+                    \left[ \varphi(x) \right]_C = A_{\varphi} \left[x \right]_{B}
+                \end{equation*}
+            }}
+        \end{center}
+        \vspace{0.3em}
+        \begin{itemize}
+            \item $A_{\varphi}$ - matrix of linear transformation $\varphi$
+            \item $\left[x \right]_{B}$ - coordinates of $x$ in basis $B$
+            \item $\left[ \varphi(x) \right]_C$ - coordinates of $\varphi(x)$ in basis $C$
+         \end{itemize}
+      \end{minipage}};
+\end{tikzpicture}
+\end{center}
+
+\vspace{1em}
+\begin{center}
+\textbf{Key Ideas:}
+\begin{itemize}
+    \item Linear transformations are completely determined by their action on basis vectors
+    \item Matrix representation allows to connect through the matrix-vector multiplication the \textbf{preimage} $x$ and \textbf{image} $\varphi(x)$ coordinates in bases in domain $\mathbb{V}$ and target space $\mathbb{W}$ respectively
+\end{itemize}
+\end{center}
+
+\end{document}

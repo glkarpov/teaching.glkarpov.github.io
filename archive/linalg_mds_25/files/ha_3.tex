@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[top=1cm,bottom=1cm,left=2cm,right=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\title{ФКН ВШЭ, МНаД. \\ Линейная алгебра. \\ Лист задач 3. Линейные отображения и их матрицы.}
+\date{}
+\author{}
+\graphicspath{{data/}}  
+% Custom command for column vector
+\newcommand{\vtwo}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\vthree}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+
+    \item Дано линейное отображение $\varphi: \mathbb{V}\rightarrow \mathbb{W}$, $\mathbb{V} = \mathbb{W}=\mathbb{R}^3$, и представлено как:
+    $$
+    \varphi \vthree{x_1}{x_2}{x_3} = \vthree{x_1 - x_2}{x_3}{x_1 + x_3}
+    $$
+    Найдите матрицу $A_{\varphi}$, которая реализует $\varphi$ в паре стандартных базисов. 
+    Покажите, что это работает на конкретном векторе, то есть сравните результаты подсчета через аналитическую формулу и матрично-векторное умножение.
+    
+
+    \item Дано линейное отображение $\varphi: \mathbb{V}\rightarrow \mathbb{W}$, $\mathbb{V} = \mathbb{W}=\mathbb{R}^2$, и представлено:
+    $$
+    \varphi \vtwo{x_1}{x_2} = \vtwo{3x_1 + x_2}{x_1 - 2x_2}
+    $$
+    
+    \begin{enumerate}
+        \item Найдите матрицу $A_{\varphi}$, которая реализует $\varphi$ в паре стандартных базисов,
+        \item Пусть сначала мы совершаем переход в базис $\mathcal{B}$ в domain пространствe $\mathbb{V}$. Найдите новый вид матрицы линейного отображения $A_{\varphi, \,(\mathcal{B}, \mathcal{S}^w)}$, которая соответствует $\varphi$, если $\mathcal{B} = \left\{\vtwo{1}{1}, \vtwo{1}{2}\right\}$.
+        \item Пусть мы далее совершаем переход в базис $\mathcal{C}$ в target пространствe $\mathbb{W}$. Найдите новый вид матрицы линейного отображения $A_{\varphi, \,(\mathcal{B}, \mathcal{C})}$, которая соответствует $\varphi$, если $\mathcal{C} = \mathcal{B} =  \left\{\vtwo{1}{1}, \; \vtwo{1}{2}\right\}$.
+    \end{enumerate}
+    Проверяйте себя на каждом шаге: возьмите конкретный вектор и сравните результаты подсчета через аналитическую формулу и матрично-векторное умножение.
+
+    \item Построить матрицу $A_{\varphi}$, соответствующую линейному отображению $\varphi(x): \mathbb{R}^2 \rightarrow \mathbb{R}^2$ в паре стандартных базисов. Известно, как функция $\varphi$ действует на пару векторов: вектор $a = \vtwo{1}{2}$ переходит в вектор $\varphi(a) = \vtwo{3}{1}$ и вектор $b = \vtwo{-1}{0}$ переходит в вектор $\varphi(b) = \vtwo{1}{1}$.
+        
+    \textit{Hint: пользуйтесь свойствами линейных отображений! Аргументы можно комбинировать, можно умножать на скаляры.}
+
+    \textbf{Дальше посложнее:}
+
+    \item Докажите в общем виде, что следующее отображение $\varphi: \; \mathbb{R}^{2 \times 2} \rightarrow \mathbb{R}^{2 \times 2} $ является линейным:
+
+    $$
+        \varphi\left(X\right) = X^{\top}, \quad \forall X \in \mathbb{R}^{2 \times 2}.    
+    $$
+
+    \textit{Что? Транспонирование матрицы? Да, это тоже линейное отображение.}
+
+    Найдите матрицу, соответствующую этому отображению в паре стандартных базисов:
+    $$ \mathcal{A}=\mathcal{B}=\left(\left[\begin{array}{ll}1 & 0 \\ 0 & 0\end{array}\right],\left[\begin{array}{ll}0 & 1 \\ 0 & 0\end{array}\right],\left[\begin{array}{ll}0 & 0 \\ 1 & 0\end{array}\right],\left[\begin{array}{ll}0 & 0 \\ 0 & 1\end{array}\right]\right).
+    $$
+
+    Затем проверьте, что это работает на любой $2 \times 2$ матрице по вашему выбору.
+    
+    \item Пусть $\mathbb{V} = \mathbb{R}[x, 2]$ и $\mathbb{W} = \mathbb{R}[x, 1]$ — два векторных пространства; пусть $\varphi: \mathbb{V} \rightarrow \mathbb{W}$ — линейное отображение.
+    $$
+    \varphi\left(b x^2+c x+d\right) = 2 b x+c, \quad \forall (bx^2 + cx + d) \in \mathbb{R}[x, 2].
+    $$
+    
+    \begin{enumerate}
+        \item Найдите матрицу $A_{\varphi}$, которая реализует $\varphi$ в паре стандартных базисов $\mathcal{S}^v = \{1, x, x^2\}$ и $\mathcal{S}^w = \{1, x\}$,
+        \item Затем мы совершаем переход в базис $\mathcal{B}=\left(x^2, x, -1-x-x^2\right)$ в domain пространствe $\mathbb{V}$.
+        Найдите новый вид матрицы линейного отображения $A_{\varphi, \,(\mathcal{B}, \mathcal{S}^w)}$, которая соответствует $\varphi$.
+        Покажите, как это работает на каком-то конкретном элементе пространства $\mathbb{V}$.
+    \end{enumerate}
+
+\end{enumerate}
+\end{document}
