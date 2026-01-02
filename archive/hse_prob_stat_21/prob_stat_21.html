@@ -200,7 +200,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#probability-theory-and-statistics" id="toc-probability-theory-and-statistics" class="nav-link active" data-scroll-target="#probability-theory-and-statistics">Probability Theory and Statistics</a></li>
+  <li><a href="#probability-theory-and-statistics" id="toc-probability-theory-and-statistics" class="nav-link active" data-scroll-target="#probability-theory-and-statistics">Probability Theory and Statistics</a>
+  <ul class="collapse">
+  <li><a href="#материалы-курса" id="toc-материалы-курса" class="nav-link" data-scroll-target="#материалы-курса">Материалы курса</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/glkarpov/teaching.glkarpov.github.io/edit/main/archive/hse_prob_stat_21/prob_stat_21.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -229,9 +232,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="probability-theory-and-statistics" class="level1">
 <h1>Probability Theory and Statistics</h1>
 <p>HSE MDI, Autumn 2021.</p>
+<section id="материалы-курса" class="level2">
+<h2 class="anchored" data-anchor-id="материалы-курса">Материалы курса</h2>
 <ul>
 <li><a href="../../archive/hse_prob_stat_21/program.html">Statistics course program</a></li>
 <li><a href="../../archive/hse_prob_stat_21/homework.html">Home assignments</a></li>
+<li><a href="notes/">Notes</a></li>
+<li><a href="presentations/">Presentations</a></li>
 <li><a href="../../math_stat_shared/numerical">Numerical examples</a></li>
 <li><a href="../../math_stat_shared/pt_links">Useful links</a></li>
 </ul>
@@ -239,6 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -365,7 +373,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/glkarpov\.github\.io\/teaching\.glkarpov\.github\.io\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -700,10 +708,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>HSE MDI, Autumn 2021.</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Statistics course program</span><span class="co">](program.md)</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Home assignments</span><span class="co">](homework.md)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Numerical examples</span><span class="co">](/math_stat_shared/numerical)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Useful links</span><span class="co">](/math_stat_shared/pt_links)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Материалы курса</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Statistics course program</span><span class="co">](program.md)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Home assignments</span><span class="co">](homework.md)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Notes</span><span class="co">](notes/)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Presentations</span><span class="co">](presentations/)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Numerical examples</span><span class="co">](/math_stat_shared/numerical)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Useful links</span><span class="co">](/math_stat_shared/pt_links)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
