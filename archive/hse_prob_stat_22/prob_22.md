@@ -5,11 +5,6 @@ has_children: true
 has_toc: false
 ---
 
-# Probability Theory 
-
-### HSE MDI, April --- June 2022.
-
-## Материалы курса
+# Probability Theory, HSE MDI, September --- October 2023
 
 - [Probability Theory course program](pt_program.md)
-- [External materials](/math_stat_shared/pt_links)

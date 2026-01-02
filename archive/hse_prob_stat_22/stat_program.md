@@ -51,11 +51,11 @@ Confidence Intervals: estimation of population mean without population variance.
 * [Seminar materials](./materials/mdi_ms_seminar7.pdf). 
 * [Notes](./notes/seminar7_notes.pdf). 
 * [Notes from online seminar](./notes/seminar7_online_notes.pdf).
-* [Theory we need for understanding chi-squared and t-distribution](/math_stat_shared/materials/chi_squared_t_theory.pdf).
-* [Notebook with visualisation of density functions](/math_stat_shared/notebooks/t_chi2_density.ipynb)
+* [Theory we need for understanding chi-squared and t-distribution](../../math_stat_shared/materials/chi_squared_t_theory.pdf).
+* [Notebook with visualisation of density functions](../../math_stat_shared/notebooks/t_chi2_density.ipynb)
 
 ### Confidence Intervals: Overview.
-* [Confidence Intervals cookbook](/math_stat_shared/materials/CI_cookbook.pdf) 🥘🍳🍷
+* [Confidence Intervals cookbook](../../math_stat_shared/materials/CI_cookbook.pdf) 🥘🍳🍷
 
 ## Seminar 8.
 
@@ -68,4 +68,4 @@ Hypotheses Testing: test of population mean with known and unknown variance, tes
 [Materials](./materials/mdi_ms_seminar8.pdf). [List of problems](./materials/mdi_ms_ht_problems.pdf).
 
 ### Hypotheses Testing: Overview.
-* [Hypothese Testing cookbook](/math_stat_shared/materials/HT_cookbook.pdf) 🍞🧈🍴
+* [Hypothese Testing cookbook](../../math_stat_shared/materials/HT_cookbook.pdf) 🍞🧈🍴
