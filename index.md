@@ -10,7 +10,7 @@ Welcome to my teaching materials repository. Here you can find materials from my
 
 These courses are currently being taught and materials are updated regularly:
 
-*No active courses at the moment.*
+- **[Probability Theory and Mathematical Statistics (HSE FCS 26)](https://ptms-mds-26.glebkarpov.com)** - HSE FCS
 
 ## Archive
 

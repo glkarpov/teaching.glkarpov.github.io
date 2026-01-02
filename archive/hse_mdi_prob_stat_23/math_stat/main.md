@@ -9,4 +9,7 @@ has_toc: false
 
 ### HSE MDI, September --- October 2023.
 
-* [Course program](math_stat_program.md)
+## Материалы курса
+
+- [Course program](math_stat_program.md)
+- [Materials](materials/)

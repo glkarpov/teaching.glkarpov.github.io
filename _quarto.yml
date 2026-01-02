@@ -24,16 +24,8 @@ website:
   title: "Teaching Activity"
   navbar:
     left:
-      - href: index.md
-        text: Home
       - href: archive.md
         text: Archive
-      - text: Active Courses
-        menu:
-          - text: "HSE BI Probability and Mathematical Statistics 2025"
-            href: https://glkarpov.github.io/ptms_bi_hse_25
-          - text: "HSE FCS Linear Algebra 2025"
-            href: https://glkarpov.github.io/linalg_mds_25
     right:
       - icon: github
         href: https://github.com/glkarpov/teaching.glkarpov.github.io

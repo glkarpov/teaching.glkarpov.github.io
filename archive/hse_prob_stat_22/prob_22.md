@@ -9,5 +9,7 @@ has_toc: false
 
 ### HSE MDI, April --- June 2022.
 
-* [Probability Theory course program](pt_program.md)
-* [External materials](/math_stat_shared/pt_links)
+## Материалы курса
+
+- [Probability Theory course program](pt_program.md)
+- [External materials](/math_stat_shared/pt_links)

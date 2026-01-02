@@ -11,9 +11,12 @@ has_toc: false
 
 ![](/images/capoo_study.gif)
 
-* [Statistics course program](stat_program.md)
+## Материалы курса
 
-* [Home Assignments](homework_22.md) 
+* [Statistics course program](stat_program.md)
+* [Home Assignments](homework_22.md)
+* [Materials](materials/)
+* [Notes](notes/)
 
 ![](/images/capoo_it.gif)
 * [External materials](/math_stat_shared/stat_links)
