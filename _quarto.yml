@@ -1,0 +1,61 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - "*.pdf"
+    - "*.png"
+    - "*.jpg"
+    - "*.jpeg"
+    - "*.gif"
+    - "*.svg"
+    - "*.mp4"
+
+lang: en
+
+execute:
+  freeze: auto
+
+# customizations through extensions (can be added later)
+# to activate, uncomment and add functionality to _extensions/custom/
+# filters:
+#   - custom
+
+website:
+  title: "Teaching Activity"
+  navbar:
+    left:
+      - href: index.md
+        text: Home
+      - href: archive.md
+        text: Archive
+      - text: Active Courses
+        menu:
+          - text: "HSE BI Probability and Mathematical Statistics 2025"
+            href: https://glkarpov.github.io/ptms_bi_hse_25
+          - text: "HSE FCS Linear Algebra 2025"
+            href: https://glkarpov.github.io/linalg_mds_25
+    right:
+      - icon: github
+        href: https://github.com/glkarpov/teaching.glkarpov.github.io
+      - icon: search
+  sidebar:
+    style: "docked"
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/glkarpov/teaching.glkarpov.github.io
+  repo-url: https://github.com/glkarpov/teaching.glkarpov.github.io
+  repo-branch: main
+  repo-actions: [edit]
+  twitter-card: true
+  open-graph: true
+
+format:
+  html:
+    theme:
+      - cosmo
+      - custom.scss
+    css: custom.css
+    toc: true
+    code-fold: show
+    code-tools: true

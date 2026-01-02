@@ -1,0 +1,17 @@
+/*-- scss:defaults --*/
+
+// custom variables
+$teaching-primary: #2563eb;
+$teaching-secondary: #64748b;
+
+/*-- scss:rules --*/
+
+// navigation
+.navbar-brand {
+  font-weight: 600;
+}
+
+// content customization
+.main-content {
+  max-width: 1200px;
+}

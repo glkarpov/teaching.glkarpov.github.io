@@ -1,5 +1,5 @@
 ---
-title: Mathematical Statistics course program
+title: Course program
 parent: Mathematical Statistics 2023
 ---
 
