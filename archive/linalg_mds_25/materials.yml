@@ -1,72 +1,72 @@
 - title: Matrices and vectors. Basic operations.
   number: 1
-  lectures: /lectures/lecture_1.pdf
-  lectures_en: /lectures/lecture_1_en.pdf
-  notes: /notes/lecture_1_notes.pdf
+  lectures: lectures/lecture_1.pdf
+  lectures_en: lectures/lecture_1_en.pdf
+  notes: notes/lecture_1_notes.pdf
 
 - title: Vectors and vector spaces. Linear combination and span. Dependence and independence of vectors.
   number: 2
-  lectures: /lectures/lecture_2.pdf
+  lectures: lectures/lecture_2.pdf
 
 - title: Basis of a vector space. Examples.
   number: 3
-  lectures: /lectures/lecture_3.pdf
-  notes_1class: /notes/lecture_3_notes_1class.pdf
-  notes_2class: /notes/lecture_3_notes_2class.pdf
+  lectures: lectures/lecture_3.pdf
+  notes_1class: notes/lecture_3_notes_1class.pdf
+  notes_2class: notes/lecture_3_notes_2class.pdf
 
 - title: Linear transformations. Matrix representation.
   number: 4
-  lectures: /lectures/lecture_4.pdf
-  notes_1class: /notes/notes_4_class1.pdf
-  notes_2class: /notes/notes_4_class2.pdf
+  lectures: lectures/lecture_4.pdf
+  notes_1class: notes/notes_4_class1.pdf
+  notes_2class: notes/notes_4_class2.pdf
   mind_map: materials/ltm_mind_map_v0.9.0.pdf
 
 - title: Change of basis as a linear transformation.
   number: 5
-  lectures: /lectures/lecture_5.pdf
-  notes_1class: /notes/notes_5_class1.pdf
-  notes_2class: /notes/notes_5_class2.pdf
+  lectures: lectures/lecture_5.pdf
+  notes_1class: notes/notes_5_class1.pdf
+  notes_2class: notes/notes_5_class2.pdf
 
 - title: Concept of a matrix inverse. Application for a change of basis.
   number: 6
-  notes_1class: /notes/notes_6_class1.pdf
-  notes_2class: /notes/notes_6_class2.pdf
+  notes_1class: notes/notes_6_class1.pdf
+  notes_2class: notes/notes_6_class2.pdf
 
 - title: Change of a linear transformation matrix when changing bases.
   number: 7
-  lectures: /lectures/lecture_7.pdf
-  notes_1class: /notes/notes_7_class1.pdf
-  notes_2class: /notes/notes_7_class2.pdf
+  lectures: lectures/lecture_7.pdf
+  notes_1class: notes/notes_7_class1.pdf
+  notes_2class: notes/notes_7_class2.pdf
 
 - title: System of linear equations. Gaussian elimination. Reduced row echelon form.
   number: 8
-  lectures: /lectures/lecture_8.pdf
-  notes_1class: /notes/notes_8_class1.pdf
-  notes_2class: /notes/notes_8_class2.pdf
+  lectures: lectures/lecture_8.pdf
+  notes_1class: notes/notes_8_class1.pdf
+  notes_2class: notes/notes_8_class2.pdf
 
 - title: Inner product spaces. Normed spaces. Vector norms.
   number: 9
-  lectures: /lectures/lecture_9.pdf
-  notes_1class: /notes/notes_9_g1.pdf
-  notes_2class: /notes/notes_9_g2.pdf
+  lectures: lectures/lecture_9.pdf
+  notes_1class: notes/notes_9_g1.pdf
+  notes_2class: notes/notes_9_g2.pdf
 
 - title: Back to SLEs. Usage  of  reduced row echelon form to analyze collections of vectors.
   number: 10
-  lectures: /lectures/lecture_10.pdf
-  notes_1class: /notes/notes_10_g1.pdf
-  notes_2class: /notes/notes_10_g2.pdf
+  lectures: lectures/lecture_10.pdf
+  notes_1class: notes/notes_10_g1.pdf
+  notes_2class: notes/notes_10_g2.pdf
 
 - title: Practical session. Problems on linear transformations.
   number: 11
-  notes_1class: /notes/notes_11_g1.pdf
-  notes_2class: /notes/notes_11_g2.pdf
-  assignments: /assignments/ha_3.pdf
+  notes_1class: notes/notes_11_g1.pdf
+  notes_2class: notes/notes_11_g2.pdf
+  assignments: assignments/ha_3.pdf
 
 - title: Orthogonal basis. Orthogonalization of a basis.
   number: 12
-  notes_1class: /notes/notes_12_g1.pdf
-  notes_2class: /notes/notes_12_g2.pdf
+  notes_1class: notes/notes_12_g1.pdf
+  notes_2class: notes/notes_12_g2.pdf
 
 - title: Additional class. Problems on change of coordinates.
-  notes: /notes/notes_cons_1.pdf
-  assignments: /assignments/ha_2.pdf
+  notes: notes/notes_cons_1.pdf
+  assignments: assignments/ha_2.pdf
