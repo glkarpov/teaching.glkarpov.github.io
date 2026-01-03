@@ -1,9 +1,71 @@
-- title: Вероятностное пространство. Классическая, комбинаторная, геометрическая вероятность. 
+- title: Вероятностное пространство. Классическая, комбинаторная вероятность.
   number: 1
-  materials: /lectures/lecture_1.pdf
-  notes: /notes/1.pdf
+  materials: lectures/lecture_1.pdf
 
-- title: Условная и полная вероятность. Независимость событий. Теорема Байеса.
+- title: Условная вероятность. Полная вероятность. Формула Байеса.
   number: 2
-  materials: /lectures/lecture_2.pdf
-  notes: /notes/2.pdf
+  materials: lectures/lecture_2.pdf
+
+- title: Полная вероятность. Формула Байеса. Случайные величины.
+  number: 3
+  materials: lectures/lecture_3.pdf
+
+- title: Дискретные случайные величины и их свойства.
+  number: 4
+  materials: lectures/lecture_4.pdf
+
+- title: Дисперсия. Функция распределения. Распределения Бернулли и биномиальное.
+  number: 5
+  materials: lectures/lecture_5.pdf
+
+- title: Непрерывные случайные величины. Распределение Пуассона.
+  number: 6
+  materials: lectures/lecture_6.pdf
+
+- title: Характеристики непрерывных случайных величин. Распределения.
+  number: 7
+  materials: lectures/lecture_7.pdf
+
+- title: Многомерные случайные величины.
+  number: 8
+  materials: lectures/lecture_8.pdf
+
+- title: Центральная предельная теорема.
+  number: 9
+  materials: lectures/lecture_9.pdf
+
+- title: Введение в статистику. Выборочные распределения.
+  number: 10
+  materials: lectures/lecture_10.pdf
+
+- title: Устойчивость нормального распределения. ИТМЛ. Хи-квадрат распределение.
+  number: 11
+  materials: lectures/lecture_11.pdf
+
+- title: Точечные оценки.
+  number: 12
+  materials: lectures/lecture_12.pdf
+
+- title: Точечные оценки. Метод моментов. Интервальные оценки I.
+  number: 13
+  materials: lectures/lecture_13.pdf
+
+- title: Интервальные оценки II: интервалы для одного параметра. Распределение Стьюдента.
+  number: 14
+  materials: lectures/lecture_14.pdf
+
+- title: Интервальные оценки II: интервалы для разности параметров.
+  number: 15
+  materials: lectures/lecture_15.pdf
+
+- title: Тестирование статистических гипотез I.
+  number: 16
+  materials: lectures/lecture_16.pdf
+
+- title: Тестирование статистических гипотез II.
+  number: 17
+  materials: lectures/lecture_17.pdf
+
+- title: Тестирование статистических гипотез III. Начала линейной регрессии.
+  number: 18
+  materials: lectures/lecture_18.pdf

@@ -1,18 +1,19 @@
 ---
 title: "Probability and Mathematical Statistics 2025"
+listing:
+  - id: materials
+    contents: 
+      - materials.yml
+    template: materials_template.ejs
+    page-size: 50
 ---
 
-# Теория вероятностей и математическая статистика
+**HSE GSB, Business Informatics BSc*
 
-**HSE BI, 2025**
+Archived version.
 
-Архивные материалы курса.
+## Course content
 
-## Материалы курса
+:::{#materials}
+::: 
 
-- [Программа курса](program.md)
-- [Лекции](lectures/)
-- [Семинары](seminars/)
-- [Домашние задания](assignments/)
-- [Заметки](notes/)
-- [Notebooks](notebooks/)
