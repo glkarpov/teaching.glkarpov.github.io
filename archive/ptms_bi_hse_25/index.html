@@ -65,6 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -102,7 +104,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-materials .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-number','listing-materials',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-number","listing-materials"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-materials'] = new List('listing-materials', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../custom.css">
 <meta property="og:title" content="Probability and Mathematical Statistics 2025 – Teaching Activity">
@@ -181,10 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#теория-вероятностей-и-математическая-статистика" id="toc-теория-вероятностей-и-математическая-статистика" class="nav-link active" data-scroll-target="#теория-вероятностей-и-математическая-статистика">Теория вероятностей и математическая статистика</a>
-  <ul class="collapse">
-  <li><a href="#материалы-курса" id="toc-материалы-курса" class="nav-link" data-scroll-target="#материалы-курса">Материалы курса</a></li>
-  </ul></li>
+  <li><a href="#course-content" id="toc-course-content" class="nav-link active" data-scroll-target="#course-content">Course content</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/glkarpov/teaching.glkarpov.github.io/edit/main/archive/ptms_bi_hse_25/index.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -210,25 +267,181 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="теория-вероятностей-и-математическая-статистика" class="level1">
-<h1>Теория вероятностей и математическая статистика</h1>
-<p><strong>HSE BI, 2025</strong></p>
-<p>Архивные материалы курса.</p>
-<section id="материалы-курса" class="level2">
-<h2 class="anchored" data-anchor-id="материалы-курса">Материалы курса</h2>
-<ul>
-<li><a href="../../archive/ptms_bi_hse_25/program.html">Программа курса</a></li>
-<li><a href="lectures/">Лекции</a></li>
-<li><a href="seminars/">Семинары</a></li>
-<li><a href="assignments/">Домашние задания</a></li>
-<li><a href="notes/">Заметки</a></li>
-<li><a href="notebooks/">Notebooks</a></li>
-</ul>
+<p>**HSE GSB, Business Informatics BSc*</p>
+<p>Archived version.</p>
+<section id="course-content" class="level2">
+<h2 class="anchored" data-anchor-id="course-content">Course content</h2>
+<div id="listing-materials" class="quarto-listing quarto-listing-container-custom">
+
+    <h3 class="anchored">Занятие 1</h3>
+    <p>
+        <a href="lectures/lecture_1.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Вероятностное пространство. Классическая, комбинаторная вероятность.</p>
+
+    <h3 class="anchored">Занятие 2</h3>
+    <p>
+        <a href="lectures/lecture_2.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Условная вероятность. Полная вероятность. Формула Байеса.</p>
+
+    <h3 class="anchored">Занятие 3</h3>
+    <p>
+        <a href="lectures/lecture_3.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Полная вероятность. Формула Байеса. Случайные величины.</p>
+
+    <h3 class="anchored">Занятие 4</h3>
+    <p>
+        <a href="lectures/lecture_4.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Дискретные случайные величины и их свойства.</p>
+
+    <h3 class="anchored">Занятие 5</h3>
+    <p>
+        <a href="lectures/lecture_5.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Дисперсия. Функция распределения. Распределения Бернулли и биномиальное.</p>
+
+    <h3 class="anchored">Занятие 6</h3>
+    <p>
+        <a href="lectures/lecture_6.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Непрерывные случайные величины. Распределение Пуассона.</p>
+
+    <h3 class="anchored">Занятие 7</h3>
+    <p>
+        <a href="lectures/lecture_7.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Характеристики непрерывных случайных величин. Распределения.</p>
+
+    <h3 class="anchored">Занятие 8</h3>
+    <p>
+        <a href="lectures/lecture_8.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Многомерные случайные величины.</p>
+
+    <h3 class="anchored">Занятие 9</h3>
+    <p>
+        <a href="lectures/lecture_9.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Центральная предельная теорема.</p>
+
+    <h3 class="anchored">Занятие 10</h3>
+    <p>
+        <a href="lectures/lecture_10.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Введение в статистику. Выборочные распределения.</p>
+
+    <h3 class="anchored">Занятие 11</h3>
+    <p>
+        <a href="lectures/lecture_11.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Устойчивость нормального распределения. ИТМЛ. Хи-квадрат распределение.</p>
+
+    <h3 class="anchored">Занятие 12</h3>
+    <p>
+        <a href="lectures/lecture_12.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Точечные оценки.</p>
+
+    <h3 class="anchored">Занятие 13</h3>
+    <p>
+        <a href="lectures/lecture_13.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Точечные оценки. Метод моментов. Интервальные оценки I.</p>
+
+    <h3 class="anchored">Занятие 14</h3>
+    <p>
+        <a href="lectures/lecture_14.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Интервальные оценки II. Интервалы для одного параметра. Распределение Стьюдента.</p>
+
+    <h3 class="anchored">Занятие 15</h3>
+    <p>
+        <a href="lectures/lecture_15.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Интервальные оценки II. Интервалы для разности параметров.</p>
+
+    <h3 class="anchored">Занятие 16</h3>
+    <p>
+        <a href="lectures/lecture_16.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Тестирование статистических гипотез I.</p>
+
+    <h3 class="anchored">Занятие 17</h3>
+    <p>
+        <a href="lectures/lecture_17.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Тестирование статистических гипотез II.</p>
+
+    <h3 class="anchored">Занятие 18</h3>
+    <p>
+        <a href="lectures/lecture_18.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        
+    </p>
+    <p>Тестирование статистических гипотез III. Начала линейной регрессии.</p>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -355,7 +568,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/teaching\.glebkarpov\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -684,22 +897,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Probability and Mathematical Statistics 2025"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Теория вероятностей и математическая статистика</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>**HSE BI, 2025**</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Архивные материалы курса.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: materials</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">      - materials.yml</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    template: materials_template.ejs</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    page-size: 50</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Материалы курса</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>**HSE GSB, Business Informatics BSc*</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Программа курса</span><span class="co">](program.md)</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Лекции</span><span class="co">](lectures/)</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Семинары</span><span class="co">](seminars/)</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Домашние задания</span><span class="co">](assignments/)</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Заметки</span><span class="co">](notes/)</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Notebooks</span><span class="co">](notebooks/)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Archived version.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Course content</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>:::{#materials}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>::: </span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

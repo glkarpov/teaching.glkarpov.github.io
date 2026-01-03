@@ -65,6 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -102,7 +104,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-materials .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-number','listing-lectures','listing-lectures_en','listing-notes','listing-notes_1class','listing-notes_2class','listing-mind_map','listing-assignments',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-number","listing-lectures","listing-lectures_en","listing-notes","listing-notes_1class","listing-notes_2class","listing-mind_map","listing-assignments"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-materials'] = new List('listing-materials', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../custom.css">
 <meta property="og:title" content="Linear Algebra 2025 – Teaching Activity">
@@ -181,10 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#linear-algebra" id="toc-linear-algebra" class="nav-link active" data-scroll-target="#linear-algebra">Linear Algebra</a>
-  <ul class="collapse">
-  <li><a href="#материалы-курса" id="toc-материалы-курса" class="nav-link" data-scroll-target="#материалы-курса">Материалы курса</a></li>
-  </ul></li>
+  <li><a href="#course-materials" id="toc-course-materials" class="nav-link active" data-scroll-target="#course-materials">Course materials</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/glkarpov/teaching.glkarpov.github.io/edit/main/archive/linalg_mds_25/index.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -210,26 +267,125 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="linear-algebra" class="level1">
-<h1>Linear Algebra</h1>
-<p><strong>HSE FCS, Master of Data Science program, 2025</strong></p>
-<p>Архивные материалы курса.</p>
+<p><strong>HSE FCS, Master of Data Science</strong></p>
+<p>Archived version.</p>
 <p>Course for students of the online “Master of Data Science” program, implemented at the Faculty of Computer Science, HSE University.</p>
 <p>The course is adaptive and aims both to introduce students to the fundamental topics of linear algebra: vector spaces, bases, linear mappings - and to demonstrate the emergence of these concepts in the practical application of linear algebra in data science and machine learning.</p>
-<section id="материалы-курса" class="level2">
-<h2 class="anchored" data-anchor-id="материалы-курса">Материалы курса</h2>
-<ul>
-<li><a href="../../archive/linalg_mds_25/program.html">Program</a></li>
-<li><a href="lectures/">Lectures</a></li>
-<li><a href="assignments/">Assignments</a></li>
-<li><a href="notes/">Notes</a></li>
-<li><a href="materials/">Materials</a></li>
-</ul>
+<section id="course-materials" class="level2">
+<h2 class="anchored" data-anchor-id="course-materials">Course materials</h2>
+<div id="listing-materials" class="quarto-listing quarto-listing-container-custom">
+
+    <h3 class="anchored">Занятие 1</h3>
+    <p>
+        <a href="lectures/lecture_1.pdf">📄 Презентация</a> • <a href="lectures/lecture_1_en.pdf">📄 Presentation</a> • <a href="notes/lecture_1_notes.pdf">📝 Заметки</a>
+    </p>
+    <p>
+        Matrices and vectors. Basic operations.
+    </p>
+
+    <h3 class="anchored">Занятие 2</h3>
+    <p>
+        <a href="lectures/lecture_2.pdf">📄 Презентация</a>
+    </p>
+    <p>
+        Vectors and vector spaces. Linear combination and span. Dependence and independence of vectors.
+    </p>
+
+    <h3 class="anchored">Занятие 3</h3>
+    <p>
+        <a href="lectures/lecture_3.pdf">📄 Презентация</a> • <a href="notes/lecture_3_notes_1class.pdf">📝 Заметки 1 поток</a> • <a href="notes/lecture_3_notes_2class.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>
+        Basis of a vector space. Examples.
+    </p>
+
+    <h3 class="anchored">Занятие 4</h3>
+    <p>
+        <a href="lectures/lecture_4.pdf">📄 Презентация</a> • <a href="notes/notes_4_class1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_4_class2.pdf">📝 Заметки 2 поток</a> • <a href="materials/ltm_mind_map_v0.9.0.pdf">🗺️ Mind Map</a>
+    </p>
+    <p>
+        Linear transformations. Matrix representation.
+    </p>
+
+    <h3 class="anchored">Занятие 5</h3>
+    <p>
+        <a href="lectures/lecture_5.pdf">📄 Презентация</a> • <a href="notes/notes_5_class1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_5_class2.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>
+        Change of basis as a linear transformation.
+    </p>
+
+    <h3 class="anchored">Занятие 6</h3>
+    <p>
+        <a href="notes/notes_6_class1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_6_class2.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>
+        Concept of a matrix inverse. Application for a change of basis.
+    </p>
+
+    <h3 class="anchored">Занятие 7</h3>
+    <p>
+        <a href="lectures/lecture_7.pdf">📄 Презентация</a> • <a href="notes/notes_7_class1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_7_class2.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>
+        Change of a linear transformation matrix when changing bases.
+    </p>
+
+    <h3 class="anchored">Занятие 8</h3>
+    <p>
+        <a href="lectures/lecture_8.pdf">📄 Презентация</a> • <a href="notes/notes_8_class1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_8_class2.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>
+        System of linear equations. Gaussian elimination. Reduced row echelon form.
+    </p>
+
+    <h3 class="anchored">Занятие 9</h3>
+    <p>
+        <a href="lectures/lecture_9.pdf">📄 Презентация</a> • <a href="notes/notes_9_g1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_9_g2.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>
+        Inner product spaces. Normed spaces. Vector norms.
+    </p>
+
+    <h3 class="anchored">Занятие 10</h3>
+    <p>
+        <a href="lectures/lecture_10.pdf">📄 Презентация</a> • <a href="notes/notes_10_g1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_10_g2.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>
+        Back to SLEs. Usage  of  reduced row echelon form to analyze collections of vectors.
+    </p>
+
+    <h3 class="anchored">Занятие 11</h3>
+    <p>
+        <a href="notes/notes_11_g1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_11_g2.pdf">📝 Заметки 2 поток</a> • <a href="assignments/ha_3.pdf">📝 Список заданий</a>
+    </p>
+    <p>
+        Practical session. Problems on linear transformations.
+    </p>
+
+    <h3 class="anchored">Занятие 12</h3>
+    <p>
+        <a href="notes/notes_12_g1.pdf">📝 Заметки 1 поток</a> • <a href="notes/notes_12_g2.pdf">📝 Заметки 2 поток</a>
+    </p>
+    <p>
+        Orthogonal basis. Orthogonalization of a basis.
+    </p>
+
+    <h3 class="anchored">Занятие </h3>
+    <p>
+        <a href="notes/notes_cons_1.pdf">📝 Заметки</a> • <a href="assignments/ha_2.pdf">📝 Список заданий</a>
+    </p>
+    <p>
+        Additional class. Problems on change of coordinates.
+    </p>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -356,7 +512,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/teaching\.glebkarpov\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -685,25 +841,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Linear Algebra 2025"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Linear Algebra</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>**HSE FCS, Master of Data Science program, 2025**</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Архивные материалы курса.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: materials</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">      - materials.yml</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    template: materials_template.ejs</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    page-size: 50</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Course for students of the online "Master of Data Science" program, implemented at the Faculty of Computer Science, HSE University.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>**HSE FCS, Master of Data Science**</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>The course is adaptive and aims both to introduce students to the fundamental topics of linear algebra: vector spaces, bases, linear mappings - and to demonstrate the emergence of these concepts in the practical application of linear algebra in data science and machine learning.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Archived version.</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Материалы курса</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Course for students of the online "Master of Data Science" program, implemented at the Faculty of Computer Science, HSE University.</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Program</span><span class="co">](program.md)</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Lectures</span><span class="co">](lectures/)</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Assignments</span><span class="co">](assignments/)</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Notes</span><span class="co">](notes/)</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Materials</span><span class="co">](materials/)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>The course is adaptive and aims both to introduce students to the fundamental topics of linear algebra: vector spaces, bases, linear mappings - and to demonstrate the emergence of these concepts in the practical application of linear algebra in data science and machine learning.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Course materials</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>:::{#materials}</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
