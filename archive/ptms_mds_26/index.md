@@ -1,0 +1,16 @@
+---
+title: Теория вероятностей и математическая статистика
+listing:
+  - id: team
+    contents: 
+      - team.yml
+    template: team_listing_template.ejs
+---
+
+# Team
+:::{#team}
+:::
+
+# Материалы
+
+[📚 Перейти к материалам курса](program.md)

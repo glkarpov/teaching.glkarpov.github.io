@@ -4,15 +4,15 @@ title: "Archive"
 
 This page contains materials from completed courses.
 
+## 2026
+
+- **[FCS Probability and Mathematical Statistics](archive/ptms_mds_26/index.md)**
+
 ## 2025
 
-### HSE BI Courses
+- **[GSB Probability and Mathematical Statistics](archive/ptms_bi_hse_25/index.md)**
 
-- **[Probability and Mathematical Statistics 2025](archive/ptms_bi_hse_25/index.md)**
-
-### HSE FCS Courses
-
-- **[Linear Algebra 2025](archive/linalg_mds_25/index.md)**
+- **[FCS Linear Algebra](archive/linalg_mds_25/index.md)**
 
 <!-- ## 2023 HSE MDI Courses
 

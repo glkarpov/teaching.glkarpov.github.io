@@ -1,0 +1,132 @@
+- title: Вероятностное пространство. Аксиоматическое определение вероятности.
+  number: 1
+  lectures: /lectures/lecture_1.pdf
+  notes: /notes/notes_class_1.pdf
+
+- title: Классическая вероятность. Комбинаторные методы.
+  number: 2
+  lectures: /lectures/lecture_2.pdf
+  notes_1group: /notes/class_2_group1.pdf
+  notes_2group: /notes/class_2_group2.pdf
+
+- title: Условная вероятность. Независимость событий.
+  number: 3
+  lectures: /lectures/lecture_3.pdf
+  notes: /notes/notes_class_3.pdf
+
+- title: Полная вероятность. Теорема Байеса.
+  number: 4
+  notes: /notes/notes_class_4.pdf
+
+- title: Полная вероятность. Теорема Байеса. Практическая сессия.
+  number: 5
+  notes_1group: /notes/class_5_group1.pdf
+  notes_2group: /notes/class_5_group2.pdf
+
+- title: Концепция случайной величины. Дискретные случайные величины.
+  number: 6
+  lectures: /lectures/lecture_6.pdf
+  notes_1group: /notes/class_6_group1.pdf
+  notes_2group: /notes/class_6_group2.pdf
+
+- title: Характеристики случайных величин. Биномиальное распределение.
+  number: 7
+  lectures: /lectures/lecture_7.pdf
+  notes: /notes/notes_class_7.pdf
+
+- title: Случайные величины. Биномиальное распределение. Практическая сессия.
+  number: 8
+  lectures: /lectures/lecture_8.pdf
+  notes_1group: /notes/class_8_group1.pdf
+  notes_2group: /notes/class_8_group2.pdf
+
+- title: Многомерные дискретные случайные величины.
+  number: 9
+  lectures: /lectures/lecture_9.pdf
+  notes: /notes/notes_class_9.pdf
+
+- title: Линейные комбинации случайных величин. Ковариация и корреляция.
+  number: 10
+  lectures: /lectures/lecture_10.pdf
+  notes_1group: /notes/class_10_group1.pdf
+  notes_2group: /notes/class_10_group2.pdf
+
+- title: Непрерывные случайные величины.
+  number: 11
+  lectures: /lectures/lecture_11.pdf
+  notes: /notes/class_11.pdf
+
+- title: Характеристики непрерывных случайных величин.
+  number: 12
+  lectures: /lectures/lecture_12.pdf
+  notes_1group: /notes/class_12_group1.pdf
+  notes_2group: /notes/class_12_group2.pdf
+
+- title: Нормальное распределение.
+  number: 13
+  lectures: /lectures/lecture_13.pdf
+  notes: /notes/class_13.pdf
+
+- title: Нормальное распределение. Практическая сессия.
+  number: 14
+  notes_1group: /notes/class_14_group1.pdf
+  notes_2group: /notes/class_14_group2.pdf
+
+- title: Введение в задачу статистики. Выборочные распределения.
+  number: 15
+  lectures: /lectures/lecture_15.pdf
+  notes: /notes/class_15.pdf
+
+- title: Выборочные распределения. Точечные оценки.
+  number: 16
+  lectures: /lectures/lecture_16.pdf
+  notes: /notes/class_16.pdf
+
+- title: Выборочные распределения. Точечные оценки. Практическая сессия.
+  number: 17
+  lectures: /lectures/lecture_17.pdf
+  notes_1group: /notes/class_17_group1.pdf
+  notes_2group: /notes/class_17_group2.pdf
+
+- title: Доверительные интервалы I.
+  number: 18
+  lectures: /lectures/lecture_18.pdf
+  notes: /notes/class_18.pdf
+
+- title: Доверительные интервалы II.
+  number: 19
+  lectures: /lectures/lecture_19.pdf
+  notes: /notes/lecture_19.pdf
+  download:
+    - label: 🚀 Colab (EN)
+      url: https://colab.research.google.com/github/glkarpov/ptms_mds_hse_26/blob/main/notebooks/confidence_intervals_MC_sim.ipynb
+    - label: 🚀 Colab (RU)
+      url: https://colab.research.google.com/github/glkarpov/ptms_mds_hse_26/blob/main/notebooks/confidence_intervals_MC_sim_ru.ipynb
+
+- title: Доверительные интервалы III.
+  number: 20
+  lectures: /lectures/lecture_20.pdf
+  notes_1group: /notes/class_20_group1.pdf
+  notes_2group: /notes/class_20_group2.pdf
+
+- title: Тестирование статистических гипотез I.
+  number: 21
+  lectures: /lectures/lecture_21.pdf
+  notes_1group: /notes/class_21_group1.pdf
+  notes_2group: /notes/class_21_group2.pdf
+  download:
+    - label: 🚀 Colab (EN)
+      url: https://colab.research.google.com/github/glkarpov/ptms_mds_hse_26/blob/main/notebooks/hyp_test_tutorial.ipynb
+    - label: 🚀 Colab (RU)
+      url: https://colab.research.google.com/github/glkarpov/ptms_mds_hse_26/blob/main/notebooks/hyp_test_tutorial_ru.ipynb
+
+- title: Тестирование статистических гипотез II.
+  number: 22
+  lectures: /lectures/lecture_22.pdf
+  notes: /notes/lecture_22.pdf
+
+- title: Тестирование статистических гипотез III.
+  number: 23
+  lectures: /lectures/lecture_23.pdf
+  notes_1group: /notes/class_23_group1.pdf
+  notes_2group: /notes/class_23_group2.pdf

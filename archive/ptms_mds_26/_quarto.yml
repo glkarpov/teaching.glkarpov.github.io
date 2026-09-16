@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: _site
+  resources: 
+    - "*.mp4"
+    - "*.txt"
+    - "*.csv"
+
+lang: ru
+
+execute:
+  freeze: auto
+
+filters:
+  - course
+
+website:
+  repo-url: https://github.com/glkarpov/ptms_mds_hse_26
+  repo-branch: main
+  repo-actions: [edit]
+  search: 
+    location: sidebar
+    type: textbox
+  twitter-card: true
+  open-graph: true
+  favicon: favicon.svg
+
+format:
+  html:
+    css: custom.css

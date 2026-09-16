@@ -1,0 +1,23 @@
+- title: Дискретные случайные величины. Распределения Бернулли и биномиальное.
+  number: 4
+  problem_sets_review: /assignments/ha_topic_4_review.pdf
+
+- title: Многомерные дискретные случайные величины. Ковариация и корреляция.
+  number: 5
+  problem_sets_review: /assignments/ha_topic_5_review.pdf
+
+- title: Выборочные распределения.
+  number: 8
+  problem_sets_review: /assignments/ha_topic_8_review.pdf
+
+- title: Доверительные интервалы.
+  number: 9
+  problem_sets_review: /assignments/ha_topic_9_review.pdf
+
+- title: Тестирование статистических гипотез I.
+  number: 10
+  problem_sets: /assignments/ha_topic_10.pdf
+
+- title: Тестирование статистических гипотез II.
+  number: 11
+  problem_sets: /assignments/ha_topic_11.pdf
