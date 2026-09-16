@@ -133,88 +133,165 @@
     "text": "More widespread formulation\nMore often in textbooks we can meet another formulation of CLT.\nFirstly, recall that if \\(X\\) is any normal random variable, then the following function makes it standard normal:\n\\[\n    Z = \\frac{X - E[X]}{\\sqrt{Var[X]}}, \\quad Z \\sim \\mathcal{N}(0,1)\n\\]\n\nLet \\(X_1, \\ldots, X_n\\) be a sequence of independent random variables taken from the same distribution, i.e. all \\(X_i\\)’s have the same expectation \\(\\mu\\) and finite variance \\(\\sigma^2\\).\nAs before we construct new random variable: \\[\n  S_n = \\sum \\limits_{i=1}^{n} X_i, \\quad E[S_n] = n \\mu, \\quad Var[S_n] = n \\sigma^2.\n\\]\nLet us apply tranformation to \\(S_n\\): \\[\n  Z_n = \\frac{S_n - E[S_n]}{\\sqrt{Var[S_n]}} = \\frac{S_n - n \\mu}{\\sigma \\sqrt{n}}\n\\]\nProperties of this new random variable: \\[\\begin{gather}\n  E[Z_n] = E \\Bigl[\\frac{S_n}{\\sigma \\sqrt{n}} - \\frac{n \\mu}{\\sigma \\sqrt{n}} \\Bigr] = E \\Bigl[\\frac{S_n}{\\sigma \\sqrt{n}} \\Bigl] - E \\Bigl[\\frac{n \\mu}{\\sigma \\sqrt{n}} \\Bigr] = \\frac{n \\mu}{\\sigma \\sqrt{n}} - \\frac{n \\mu}{\\sigma \\sqrt{n}} = 0 \\\\\n  Var[Z_n] = Var \\Bigl[\\frac{S_n}{\\sigma \\sqrt{n}} - \\frac{n \\mu}{\\sigma \\sqrt{n}} \\Bigr] = Var \\Bigl[\\frac{S_n}{\\sigma \\sqrt{n}} \\Bigl] + Var \\Bigl[\\frac{n \\mu}{\\sigma \\sqrt{n}} \\Bigr] = \\frac{Var[S_n]}{n \\sigma^2} + 0 = 1.\n\\end{gather}\\]\nCentral Limit Theorem: distribution of such random variable \\(Z_n\\) tends to standard normal as \\(n \\rightarrow \\infty\\): \\(Z_n  \\rightarrow  Z \\sim \\mathcal{N}(0, 1)\\).\nIn simple words, if \\(n\\) is large enough, then we can say that \\(S_n \\sim \\mathcal{N}(n \\mu, n \\sigma^2)\\), and simultaneously random variable \\(Z_n = \\frac{S_n - n\\mu}{\\sigma \\sqrt{n}}\\) has standard normal distribution i.e. \\(Z_n \\sim \\mathcal{N}(0, 1)\\).\n\n\n\nCode\nb = stats.beta(0.05, 0.05)\n\n# Find out global properties of population:\nmu = b.mean()\nsigma = np.sqrt(b.var())\nvar = b.var()\n\n# Generate Sample Means\nn_draws = 10000\nx_totals = np.empty(n_draws)\nn_bins = 50\n\nfor sample_size in range(1, 35):\n    for i in range(n_draws):\n        sample = b.rvs(size=sample_size)\n        x_totals[i] = np.sum(sample)    \n\n    # transformation of all realizations to standard normal\n    z = (x_totals - sample_size * mu) / np.sqrt(var * sample_size)\n    plt.figure(figsize=(10, 5))\n    sns.histplot(z, bins=n_bins).grid()\n    counts, _, _ = plt.hist(z, bins=n_bins, alpha=0.0)  # just in order to find out the scaling coefficient for PDF\n    plt.title(r'Approximate density shape of variable $Z_n$ (sample size = {})'.format(sample_size))\n\n    # scaling of standard normal PDF, because histogram has large values on y-axis, and we need to fit them\n    x_space = np.linspace(-5, 5)\n    plt.plot(x_space, np.max(counts) * stats.norm.pdf(x_space, 0, 1) * np.sqrt(2 * np.pi), label='Standard Normal')\n    plt.legend()\n    plt.show()"
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_22.html",
-    "href": "archive/hse_prob_stat_22/stat_22.html",
-    "title": "Mathematical Statistics 2022",
+    "objectID": "archive/ptms_bi_hse_25/index.html",
+    "href": "archive/ptms_bi_hse_25/index.html",
+    "title": "Probability and Mathematical Statistics 2025",
     "section": "",
-    "text": "## Mathematical Statistics. HSE MDI, Sep — Oct 2022."
+    "text": "**HSE GSB, Business Informatics BSc*\nArchived version."
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_22.html#course-materials",
-    "href": "archive/hse_prob_stat_22/stat_22.html#course-materials",
-    "title": "Mathematical Statistics 2022",
-    "section": "Course materials",
-    "text": "Course materials\n\nStatistics course program\nHome Assignments\n\n * External materials"
+    "objectID": "archive/ptms_bi_hse_25/index.html#course-content",
+    "href": "archive/ptms_bi_hse_25/index.html#course-content",
+    "title": "Probability and Mathematical Statistics 2025",
+    "section": "Course content",
+    "text": "Course content\n\n\n    Занятие 1\n    \n        📄 Презентация\n    \n    \n        \n    \n    Вероятностное пространство. Классическая, комбинаторная вероятность.\n\n    Занятие 2\n    \n        📄 Презентация\n    \n    \n        \n    \n    Условная вероятность. Полная вероятность. Формула Байеса.\n\n    Занятие 3\n    \n        📄 Презентация\n    \n    \n        \n    \n    Полная вероятность. Формула Байеса. Случайные величины.\n\n    Занятие 4\n    \n        📄 Презентация\n    \n    \n        \n    \n    Дискретные случайные величины и их свойства.\n\n    Занятие 5\n    \n        📄 Презентация\n    \n    \n        \n    \n    Дисперсия. Функция распределения. Распределения Бернулли и биномиальное.\n\n    Занятие 6\n    \n        📄 Презентация\n    \n    \n        \n    \n    Непрерывные случайные величины. Распределение Пуассона.\n\n    Занятие 7\n    \n        📄 Презентация\n    \n    \n        \n    \n    Характеристики непрерывных случайных величин. Распределения.\n\n    Занятие 8\n    \n        📄 Презентация\n    \n    \n        \n    \n    Многомерные случайные величины.\n\n    Занятие 9\n    \n        📄 Презентация\n    \n    \n        \n    \n    Центральная предельная теорема.\n\n    Занятие 10\n    \n        📄 Презентация\n    \n    \n        \n    \n    Введение в статистику. Выборочные распределения.\n\n    Занятие 11\n    \n        📄 Презентация\n    \n    \n        \n    \n    Устойчивость нормального распределения. ИТМЛ. Хи-квадрат распределение.\n\n    Занятие 12\n    \n        📄 Презентация\n    \n    \n        \n    \n    Точечные оценки.\n\n    Занятие 13\n    \n        📄 Презентация\n    \n    \n        \n    \n    Точечные оценки. Метод моментов. Интервальные оценки I.\n\n    Занятие 14\n    \n        📄 Презентация\n    \n    \n        \n    \n    Интервальные оценки II. Интервалы для одного параметра. Распределение Стьюдента.\n\n    Занятие 15\n    \n        📄 Презентация\n    \n    \n        \n    \n    Интервальные оценки II. Интервалы для разности параметров.\n\n    Занятие 16\n    \n        📄 Презентация\n    \n    \n        \n    \n    Тестирование статистических гипотез I.\n\n    Занятие 17\n    \n        📄 Презентация\n    \n    \n        \n    \n    Тестирование статистических гипотез II.\n\n    Занятие 18\n    \n        📄 Презентация\n    \n    \n        \n    \n    Тестирование статистических гипотез III. Начала линейной регрессии.\n\nNo matching items"
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html",
-    "href": "archive/hse_prob_stat_22/stat_program.html",
-    "title": "Mathematical Statistics course program 📊🎲",
+    "objectID": "archive/hse_prob_stat_22/homework_22.html",
+    "href": "archive/hse_prob_stat_22/homework_22.html",
+    "title": "Home assignments",
     "section": "",
-    "text": "Probability revision: distributions. Notes.\n\n\n\nProbability revision: multivariate random variables (MRV). Notes.\n\n\n\nMRV Part II. Continuous MRV. Introduction to Statistics.\nMaterials. Notes.\n\n\n\nSampling distribution. Point estimation. Unbiased estimators. Mean Squared Error.\nMaterials. Notes.\n\n\n\nCentral Limit Theorem. Confidence Intervals. Estimation of population mean, given population variance.\nMaterials. Notes.\n\n\n\nConfidence Intervals: estimation of population proportion, difference between population means, difference between population proportions.\nMaterials. Notes.\n\n\n\nConfidence Intervals: estimation of population mean without population variance. Student’s t-distribution.\n\nSeminar materials.\nNotes.\nNotes from online seminar.\nTheory we need for understanding chi-squared and t-distribution.\nNotebook with visualisation of density functions\n\n\n\n\nConfidence Intervals cookbook 🥘🍳🍷\n\n\n\n\n\n🚧 Construction in progress. 🚧\n\n\n\nHypotheses Testing: test of population mean with known and unknown variance, test for population proportion.\nMaterials. List of problems.\n\n\n\nHypothese Testing cookbook 🍞🧈🍴"
+    "text": "Home assignments\n\nHome Assignment 1: Confidence Intervals, Point Estimation.\nHome Assignment 2: Hypotheses Testing."
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-1.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-1.",
-    "title": "Mathematical Statistics course program 📊🎲",
+    "objectID": "archive/hse_prob_stat_22/prob_22.html",
+    "href": "archive/hse_prob_stat_22/prob_22.html",
+    "title": "Probability Theory 2022",
+    "section": "",
+    "text": "Probability Theory, HSE MDI, September — October 2023\n\nProbability Theory course program"
+  },
+  {
+    "objectID": "archive/ptms_mds_26/index.html",
+    "href": "archive/ptms_mds_26/index.html",
+    "title": "Теория вероятностей и математическая статистика",
+    "section": "",
+    "text": "Team\n\n\n    \n        \n            \n                \n                  \n                    \n                      Глеб Карпов\n                    \n                    Лектор\n                  \n                \n              \n        \n            \n                \n                  \n                    \n                      София Гафарова\n                    \n                    Ассистент\n                  \n                \n              \n        \n            \n                \n                  \n                    \n                      София Гизатуллина\n                    \n                    Ассистент\n                  \n                \n              \n        \n            \n                \n                  \n                    \n                      Андрей Прохоров\n                    \n                    Ассистент\n                  \n                \n              \n        \n            \n                \n                  \n                    \n                      Дмитрий Александров\n                    \n                    Ассистент\n                  \n                \n              \n        \n    \n\nNo matching items\n\n\n\nМатериалы\n📚 Перейти к материалам курса"
+  },
+  {
+    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html",
+    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html",
+    "title": "Probability Theory course program",
+    "section": "",
+    "text": "Introduction. Probability space.\nProblem list\n\n\n\nProbability function axioms. Classical probability. Counting principles: multiplication rule, permutations.\nProblem list\nTheory reviews: Probability function, Counting principles.\n\n\n\nCounting principles: combinations. Conditional probability.\nProblem list.\n\n\n\nConditional probability. Independence of events. Total probability and Bayes’ theorem.\nProblem list."
+  },
+  {
+    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-1.",
+    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-1.",
+    "title": "Probability Theory course program",
+    "section": "",
+    "text": "Introduction. Probability space.\nProblem list"
+  },
+  {
+    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-2.",
+    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-2.",
+    "title": "Probability Theory course program",
+    "section": "",
+    "text": "Probability function axioms. Classical probability. Counting principles: multiplication rule, permutations.\nProblem list\nTheory reviews: Probability function, Counting principles."
+  },
+  {
+    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-3.",
+    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-3.",
+    "title": "Probability Theory course program",
+    "section": "",
+    "text": "Counting principles: combinations. Conditional probability.\nProblem list."
+  },
+  {
+    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-4.",
+    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-4.",
+    "title": "Probability Theory course program",
+    "section": "",
+    "text": "Conditional probability. Independence of events. Total probability and Bayes’ theorem.\nProblem list."
+  },
+  {
+    "objectID": "archive/hse_mdi_prob_stat_23/math_stat/main.html",
+    "href": "archive/hse_mdi_prob_stat_23/math_stat/main.html",
+    "title": "Mathematical Statistics 2023",
+    "section": "",
+    "text": "Course program"
+  },
+  {
+    "objectID": "archive/hse_mdi_prob_stat_23/math_stat/main.html#mathematical-statistics-hse-mdi-september-october-2023",
+    "href": "archive/hse_mdi_prob_stat_23/math_stat/main.html#mathematical-statistics-hse-mdi-september-october-2023",
+    "title": "Mathematical Statistics 2023",
+    "section": "",
+    "text": "Course program"
+  },
+  {
+    "objectID": "archive.html",
+    "href": "archive.html",
+    "title": "Archive",
+    "section": "",
+    "text": "This page contains materials from completed courses."
+  },
+  {
+    "objectID": "archive.html#section",
+    "href": "archive.html#section",
+    "title": "Archive",
+    "section": "2026",
+    "text": "2026\n\nFCS Probability and Mathematical Statistics"
+  },
+  {
+    "objectID": "archive.html#section-1",
+    "href": "archive.html#section-1",
+    "title": "Archive",
+    "section": "2025",
+    "text": "2025\n\nGSB Probability and Mathematical Statistics\nFCS Linear Algebra"
+  },
+  {
+    "objectID": "archive.html#hse-mdi-courses",
+    "href": "archive.html#hse-mdi-courses",
+    "title": "Archive",
+    "section": "2022 HSE MDI Courses",
+    "text": "2022 HSE MDI Courses\n\nMathematical Statistics 2022\nProbability Theory 2022"
+  },
+  {
+    "objectID": "archive/hse_mdi_prob_stat_23/math_stat/math_stat_program.html",
+    "href": "archive/hse_mdi_prob_stat_23/math_stat/math_stat_program.html",
+    "title": "Course program",
     "section": "",
     "text": "Probability revision: distributions. Notes."
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-2.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-2.",
-    "title": "Mathematical Statistics course program 📊🎲",
+    "objectID": "archive/hse_mdi_prob_stat_23/math_stat/math_stat_program.html#seminar-1.",
+    "href": "archive/hse_mdi_prob_stat_23/math_stat/math_stat_program.html#seminar-1.",
+    "title": "Course program",
     "section": "",
-    "text": "Probability revision: multivariate random variables (MRV). Notes."
+    "text": "Probability revision: distributions. Notes."
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-3.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-3.",
-    "title": "Mathematical Statistics course program 📊🎲",
+    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_main.html",
+    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_main.html",
+    "title": "Probability Theory 2023",
     "section": "",
-    "text": "MRV Part II. Continuous MRV. Introduction to Statistics.\nMaterials. Notes."
+    "text": "Probability Theory course program"
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-4.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-4.",
-    "title": "Mathematical Statistics course program 📊🎲",
+    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_main.html#probability-theory-hse-mdi-april-june-2023",
+    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_main.html#probability-theory-hse-mdi-april-june-2023",
+    "title": "Probability Theory 2023",
     "section": "",
-    "text": "Sampling distribution. Point estimation. Unbiased estimators. Mean Squared Error.\nMaterials. Notes."
+    "text": "Probability Theory course program"
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-5.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-5.",
-    "title": "Mathematical Statistics course program 📊🎲",
+    "objectID": "archive/linalg_mds_25/index.html",
+    "href": "archive/linalg_mds_25/index.html",
+    "title": "Linear Algebra 2025",
     "section": "",
-    "text": "Central Limit Theorem. Confidence Intervals. Estimation of population mean, given population variance.\nMaterials. Notes."
+    "text": "HSE FCS, Master of Data Science\nArchived version.\nCourse for students of the online “Master of Data Science” program, implemented at the Faculty of Computer Science, HSE University.\nThe course is adaptive and aims both to introduce students to the fundamental topics of linear algebra: vector spaces, bases, linear mappings - and to demonstrate the emergence of these concepts in the practical application of linear algebra in data science and machine learning."
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-6.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-6.",
-    "title": "Mathematical Statistics course program 📊🎲",
-    "section": "",
-    "text": "Confidence Intervals: estimation of population proportion, difference between population means, difference between population proportions.\nMaterials. Notes."
+    "objectID": "archive/linalg_mds_25/index.html#course-materials",
+    "href": "archive/linalg_mds_25/index.html#course-materials",
+    "title": "Linear Algebra 2025",
+    "section": "Course materials",
+    "text": "Course materials\n\n\n    Занятие 1\n    \n        📄 Презентация • 📄 Presentation • 📝 Заметки\n    \n    \n        Matrices and vectors. Basic operations.\n    \n\n    Занятие 2\n    \n        📄 Презентация\n    \n    \n        Vectors and vector spaces. Linear combination and span. Dependence and independence of vectors.\n    \n\n    Занятие 3\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Basis of a vector space. Examples.\n    \n\n    Занятие 4\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток • 🗺️ Mind Map\n    \n    \n        Linear transformations. Matrix representation.\n    \n\n    Занятие 5\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Change of basis as a linear transformation.\n    \n\n    Занятие 6\n    \n        📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Concept of a matrix inverse. Application for a change of basis.\n    \n\n    Занятие 7\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Change of a linear transformation matrix when changing bases.\n    \n\n    Занятие 8\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        System of linear equations. Gaussian elimination. Reduced row echelon form.\n    \n\n    Занятие 9\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Inner product spaces. Normed spaces. Vector norms.\n    \n\n    Занятие 10\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Back to SLEs. Usage  of  reduced row echelon form to analyze collections of vectors.\n    \n\n    Занятие 11\n    \n        📝 Заметки 1 поток • 📝 Заметки 2 поток • 📝 Список заданий\n    \n    \n        Practical session. Problems on linear transformations.\n    \n\n    Занятие 12\n    \n        📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Orthogonal basis. Orthogonalization of a basis.\n    \n\n    Занятие \n    \n        📝 Заметки • 📝 Список заданий\n    \n    \n        Additional class. Problems on change of coordinates.\n    \n\nNo matching items"
   },
   {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-7.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-7.",
-    "title": "Mathematical Statistics course program 📊🎲",
+    "objectID": "archive/ptms_mds_26/program.html",
+    "href": "archive/ptms_mds_26/program.html",
+    "title": "📚 Материалы",
     "section": "",
-    "text": "Confidence Intervals: estimation of population mean without population variance. Student’s t-distribution.\n\nSeminar materials.\nNotes.\nNotes from online seminar.\nTheory we need for understanding chi-squared and t-distribution.\nNotebook with visualisation of density functions\n\n\n\n\nConfidence Intervals cookbook 🥘🍳🍷"
-  },
-  {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-8.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-8.",
-    "title": "Mathematical Statistics course program 📊🎲",
-    "section": "",
-    "text": "🚧 Construction in progress. 🚧"
-  },
-  {
-    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-9.",
-    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-9.",
-    "title": "Mathematical Statistics course program 📊🎲",
-    "section": "",
-    "text": "Hypotheses Testing: test of population mean with known and unknown variance, test for population proportion.\nMaterials. List of problems.\n\n\n\nHypothese Testing cookbook 🍞🧈🍴"
+    "text": "Занятие 1\n    \n        📄 Презентация • 📝 Заметки\n    \n    Вероятностное пространство. Аксиоматическое определение вероятности.\n\n    Занятие 2\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Классическая вероятность. Комбинаторные методы.\n\n    Занятие 3\n    \n        📄 Презентация • 📝 Заметки\n    \n    Условная вероятность. Независимость событий.\n\n    Занятие 4\n    \n        📝 Заметки\n    \n    Полная вероятность. Теорема Байеса.\n\n    Занятие 5\n    \n        📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Полная вероятность. Теорема Байеса. Практическая сессия.\n\n    Занятие 6\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Концепция случайной величины. Дискретные случайные величины.\n\n    Занятие 7\n    \n        📄 Презентация • 📝 Заметки\n    \n    Характеристики случайных величин. Биномиальное распределение.\n\n    Занятие 8\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Случайные величины. Биномиальное распределение. Практическая сессия.\n\n    Занятие 9\n    \n        📄 Презентация • 📝 Заметки\n    \n    Многомерные дискретные случайные величины.\n\n    Занятие 10\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Линейные комбинации случайных величин. Ковариация и корреляция.\n\n    Занятие 11\n    \n        📄 Презентация • 📝 Заметки\n    \n    Непрерывные случайные величины.\n\n    Занятие 12\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Характеристики непрерывных случайных величин.\n\n    Занятие 13\n    \n        📄 Презентация • 📝 Заметки\n    \n    Нормальное распределение.\n\n    Занятие 14\n    \n        📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Нормальное распределение. Практическая сессия.\n\n    Занятие 15\n    \n        📄 Презентация • 📝 Заметки\n    \n    Введение в задачу статистики. Выборочные распределения.\n\n    Занятие 16\n    \n        📄 Презентация • 📝 Заметки\n    \n    Выборочные распределения. Точечные оценки.\n\n    Занятие 17\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Выборочные распределения. Точечные оценки. Практическая сессия.\n\n    Занятие 18\n    \n        📄 Презентация • 📝 Заметки\n    \n    Доверительные интервалы I.\n\n    Занятие 19\n    \n        📄 Презентация • 📝 Заметки • 🚀 Colab (EN) • 🚀 Colab (RU)\n    \n    Доверительные интервалы II.\n\n    Занятие 20\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Доверительные интервалы III.\n\n    Занятие 21\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток • 🚀 Colab (EN) • 🚀 Colab (RU)\n    \n    Тестирование статистических гипотез I.\n\n    Занятие 22\n    \n        📄 Презентация • 📝 Заметки\n    \n    Тестирование статистических гипотез II.\n\n    Занятие 23\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    Тестирование статистических гипотез III.\n\nNo matching items\n\n\n\n    Консультация 1\n    \n        📄 Презентация • 📝 Заметки\n    \n    Дискретные случайные величины. Практическая сессия.\n\n    Консультация 2\n    \n        📄 Презентация • 📝 Заметки\n    \n    Центральная предельная теорема\n\nNo matching items\n\n\n\n    Self-study problem set 4\n    \n        🌝 Answers and review\n    \n    Дискретные случайные величины. Распределения Бернулли и биномиальное.\n\n    Self-study problem set 5\n    \n        🌝 Answers and review\n    \n    Многомерные дискретные случайные величины. Ковариация и корреляция.\n\n    Self-study problem set 8\n    \n        🌝 Answers and review\n    \n    Выборочные распределения.\n\n    Self-study problem set 9\n    \n        🌝 Answers and review\n    \n    Доверительные интервалы.\n\n    Self-study problem set 10\n    \n        🌚 Problem set\n    \n    Тестирование статистических гипотез I.\n\n    Self-study problem set 11\n    \n        🌚 Problem set\n    \n    Тестирование статистических гипотез II.\n\nNo matching items"
   },
   {
     "objectID": "archive/hse_prob_stat_22/pt_program.html",
@@ -287,144 +364,88 @@
     "text": "Multivariate discrete random variables.\nNotes."
   },
   {
-    "objectID": "archive/linalg_mds_25/index.html",
-    "href": "archive/linalg_mds_25/index.html",
-    "title": "Linear Algebra 2025",
+    "objectID": "archive/hse_prob_stat_22/stat_program.html",
+    "href": "archive/hse_prob_stat_22/stat_program.html",
+    "title": "Mathematical Statistics course program 📊🎲",
     "section": "",
-    "text": "HSE FCS, Master of Data Science\nArchived version.\nCourse for students of the online “Master of Data Science” program, implemented at the Faculty of Computer Science, HSE University.\nThe course is adaptive and aims both to introduce students to the fundamental topics of linear algebra: vector spaces, bases, linear mappings - and to demonstrate the emergence of these concepts in the practical application of linear algebra in data science and machine learning."
+    "text": "Probability revision: distributions. Notes.\n\n\n\nProbability revision: multivariate random variables (MRV). Notes.\n\n\n\nMRV Part II. Continuous MRV. Introduction to Statistics.\nMaterials. Notes.\n\n\n\nSampling distribution. Point estimation. Unbiased estimators. Mean Squared Error.\nMaterials. Notes.\n\n\n\nCentral Limit Theorem. Confidence Intervals. Estimation of population mean, given population variance.\nMaterials. Notes.\n\n\n\nConfidence Intervals: estimation of population proportion, difference between population means, difference between population proportions.\nMaterials. Notes.\n\n\n\nConfidence Intervals: estimation of population mean without population variance. Student’s t-distribution.\n\nSeminar materials.\nNotes.\nNotes from online seminar.\nTheory we need for understanding chi-squared and t-distribution.\nNotebook with visualisation of density functions\n\n\n\n\nConfidence Intervals cookbook 🥘🍳🍷\n\n\n\n\n\n🚧 Construction in progress. 🚧\n\n\n\nHypotheses Testing: test of population mean with known and unknown variance, test for population proportion.\nMaterials. List of problems.\n\n\n\nHypothese Testing cookbook 🍞🧈🍴"
   },
   {
-    "objectID": "archive/linalg_mds_25/index.html#course-materials",
-    "href": "archive/linalg_mds_25/index.html#course-materials",
-    "title": "Linear Algebra 2025",
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-1.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-1.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "Probability revision: distributions. Notes."
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-2.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-2.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "Probability revision: multivariate random variables (MRV). Notes."
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-3.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-3.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "MRV Part II. Continuous MRV. Introduction to Statistics.\nMaterials. Notes."
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-4.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-4.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "Sampling distribution. Point estimation. Unbiased estimators. Mean Squared Error.\nMaterials. Notes."
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-5.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-5.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "Central Limit Theorem. Confidence Intervals. Estimation of population mean, given population variance.\nMaterials. Notes."
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-6.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-6.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "Confidence Intervals: estimation of population proportion, difference between population means, difference between population proportions.\nMaterials. Notes."
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-7.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-7.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "Confidence Intervals: estimation of population mean without population variance. Student’s t-distribution.\n\nSeminar materials.\nNotes.\nNotes from online seminar.\nTheory we need for understanding chi-squared and t-distribution.\nNotebook with visualisation of density functions\n\n\n\n\nConfidence Intervals cookbook 🥘🍳🍷"
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-8.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-8.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "🚧 Construction in progress. 🚧"
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_program.html#seminar-9.",
+    "href": "archive/hse_prob_stat_22/stat_program.html#seminar-9.",
+    "title": "Mathematical Statistics course program 📊🎲",
+    "section": "",
+    "text": "Hypotheses Testing: test of population mean with known and unknown variance, test for population proportion.\nMaterials. List of problems.\n\n\n\nHypothese Testing cookbook 🍞🧈🍴"
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_22.html",
+    "href": "archive/hse_prob_stat_22/stat_22.html",
+    "title": "Mathematical Statistics 2022",
+    "section": "",
+    "text": "## Mathematical Statistics. HSE MDI, Sep — Oct 2022."
+  },
+  {
+    "objectID": "archive/hse_prob_stat_22/stat_22.html#course-materials",
+    "href": "archive/hse_prob_stat_22/stat_22.html#course-materials",
+    "title": "Mathematical Statistics 2022",
     "section": "Course materials",
-    "text": "Course materials\n\n\n    Занятие 1\n    \n        📄 Презентация • 📄 Presentation • 📝 Заметки\n    \n    \n        Matrices and vectors. Basic operations.\n    \n\n    Занятие 2\n    \n        📄 Презентация\n    \n    \n        Vectors and vector spaces. Linear combination and span. Dependence and independence of vectors.\n    \n\n    Занятие 3\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Basis of a vector space. Examples.\n    \n\n    Занятие 4\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток • 🗺️ Mind Map\n    \n    \n        Linear transformations. Matrix representation.\n    \n\n    Занятие 5\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Change of basis as a linear transformation.\n    \n\n    Занятие 6\n    \n        📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Concept of a matrix inverse. Application for a change of basis.\n    \n\n    Занятие 7\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Change of a linear transformation matrix when changing bases.\n    \n\n    Занятие 8\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        System of linear equations. Gaussian elimination. Reduced row echelon form.\n    \n\n    Занятие 9\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Inner product spaces. Normed spaces. Vector norms.\n    \n\n    Занятие 10\n    \n        📄 Презентация • 📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Back to SLEs. Usage  of  reduced row echelon form to analyze collections of vectors.\n    \n\n    Занятие 11\n    \n        📝 Заметки 1 поток • 📝 Заметки 2 поток • 📝 Список заданий\n    \n    \n        Practical session. Problems on linear transformations.\n    \n\n    Занятие 12\n    \n        📝 Заметки 1 поток • 📝 Заметки 2 поток\n    \n    \n        Orthogonal basis. Orthogonalization of a basis.\n    \n\n    Занятие \n    \n        📝 Заметки • 📝 Список заданий\n    \n    \n        Additional class. Problems on change of coordinates.\n    \n\nNo matching items"
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_main.html",
-    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_main.html",
-    "title": "Probability Theory 2023",
-    "section": "",
-    "text": "Probability Theory course program"
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_main.html#probability-theory-hse-mdi-april-june-2023",
-    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_main.html#probability-theory-hse-mdi-april-june-2023",
-    "title": "Probability Theory 2023",
-    "section": "",
-    "text": "Probability Theory course program"
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/math_stat/math_stat_program.html",
-    "href": "archive/hse_mdi_prob_stat_23/math_stat/math_stat_program.html",
-    "title": "Course program",
-    "section": "",
-    "text": "Probability revision: distributions. Notes."
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/math_stat/math_stat_program.html#seminar-1.",
-    "href": "archive/hse_mdi_prob_stat_23/math_stat/math_stat_program.html#seminar-1.",
-    "title": "Course program",
-    "section": "",
-    "text": "Probability revision: distributions. Notes."
-  },
-  {
-    "objectID": "archive.html",
-    "href": "archive.html",
-    "title": "Archive",
-    "section": "",
-    "text": "This page contains materials from completed courses."
-  },
-  {
-    "objectID": "archive.html#section",
-    "href": "archive.html#section",
-    "title": "Archive",
-    "section": "2025",
-    "text": "2025\n\nHSE BI Courses\n\nProbability and Mathematical Statistics 2025\n\n\n\nHSE FCS Courses\n\nLinear Algebra 2025"
-  },
-  {
-    "objectID": "archive.html#hse-mdi-courses",
-    "href": "archive.html#hse-mdi-courses",
-    "title": "Archive",
-    "section": "2022 HSE MDI Courses",
-    "text": "2022 HSE MDI Courses\n\nMathematical Statistics 2022\nProbability Theory 2022"
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/math_stat/main.html",
-    "href": "archive/hse_mdi_prob_stat_23/math_stat/main.html",
-    "title": "Mathematical Statistics 2023",
-    "section": "",
-    "text": "Course program"
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/math_stat/main.html#mathematical-statistics-hse-mdi-september-october-2023",
-    "href": "archive/hse_mdi_prob_stat_23/math_stat/main.html#mathematical-statistics-hse-mdi-september-october-2023",
-    "title": "Mathematical Statistics 2023",
-    "section": "",
-    "text": "Course program"
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html",
-    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html",
-    "title": "Probability Theory course program",
-    "section": "",
-    "text": "Introduction. Probability space.\nProblem list\n\n\n\nProbability function axioms. Classical probability. Counting principles: multiplication rule, permutations.\nProblem list\nTheory reviews: Probability function, Counting principles.\n\n\n\nCounting principles: combinations. Conditional probability.\nProblem list.\n\n\n\nConditional probability. Independence of events. Total probability and Bayes’ theorem.\nProblem list."
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-1.",
-    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-1.",
-    "title": "Probability Theory course program",
-    "section": "",
-    "text": "Introduction. Probability space.\nProblem list"
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-2.",
-    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-2.",
-    "title": "Probability Theory course program",
-    "section": "",
-    "text": "Probability function axioms. Classical probability. Counting principles: multiplication rule, permutations.\nProblem list\nTheory reviews: Probability function, Counting principles."
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-3.",
-    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-3.",
-    "title": "Probability Theory course program",
-    "section": "",
-    "text": "Counting principles: combinations. Conditional probability.\nProblem list."
-  },
-  {
-    "objectID": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-4.",
-    "href": "archive/hse_mdi_prob_stat_23/probability_theory/prob_theory_program.html#seminar-4.",
-    "title": "Probability Theory course program",
-    "section": "",
-    "text": "Conditional probability. Independence of events. Total probability and Bayes’ theorem.\nProblem list."
-  },
-  {
-    "objectID": "archive/hse_prob_stat_22/prob_22.html",
-    "href": "archive/hse_prob_stat_22/prob_22.html",
-    "title": "Probability Theory 2022",
-    "section": "",
-    "text": "Probability Theory, HSE MDI, September — October 2023\n\nProbability Theory course program"
-  },
-  {
-    "objectID": "archive/hse_prob_stat_22/homework_22.html",
-    "href": "archive/hse_prob_stat_22/homework_22.html",
-    "title": "Home assignments",
-    "section": "",
-    "text": "Home assignments\n\nHome Assignment 1: Confidence Intervals, Point Estimation.\nHome Assignment 2: Hypotheses Testing."
-  },
-  {
-    "objectID": "archive/ptms_bi_hse_25/index.html",
-    "href": "archive/ptms_bi_hse_25/index.html",
-    "title": "Probability and Mathematical Statistics 2025",
-    "section": "",
-    "text": "**HSE GSB, Business Informatics BSc*\nArchived version."
-  },
-  {
-    "objectID": "archive/ptms_bi_hse_25/index.html#course-content",
-    "href": "archive/ptms_bi_hse_25/index.html#course-content",
-    "title": "Probability and Mathematical Statistics 2025",
-    "section": "Course content",
-    "text": "Course content\n\n\n    Занятие 1\n    \n        📄 Презентация\n    \n    \n        \n    \n    Вероятностное пространство. Классическая, комбинаторная вероятность.\n\n    Занятие 2\n    \n        📄 Презентация\n    \n    \n        \n    \n    Условная вероятность. Полная вероятность. Формула Байеса.\n\n    Занятие 3\n    \n        📄 Презентация\n    \n    \n        \n    \n    Полная вероятность. Формула Байеса. Случайные величины.\n\n    Занятие 4\n    \n        📄 Презентация\n    \n    \n        \n    \n    Дискретные случайные величины и их свойства.\n\n    Занятие 5\n    \n        📄 Презентация\n    \n    \n        \n    \n    Дисперсия. Функция распределения. Распределения Бернулли и биномиальное.\n\n    Занятие 6\n    \n        📄 Презентация\n    \n    \n        \n    \n    Непрерывные случайные величины. Распределение Пуассона.\n\n    Занятие 7\n    \n        📄 Презентация\n    \n    \n        \n    \n    Характеристики непрерывных случайных величин. Распределения.\n\n    Занятие 8\n    \n        📄 Презентация\n    \n    \n        \n    \n    Многомерные случайные величины.\n\n    Занятие 9\n    \n        📄 Презентация\n    \n    \n        \n    \n    Центральная предельная теорема.\n\n    Занятие 10\n    \n        📄 Презентация\n    \n    \n        \n    \n    Введение в статистику. Выборочные распределения.\n\n    Занятие 11\n    \n        📄 Презентация\n    \n    \n        \n    \n    Устойчивость нормального распределения. ИТМЛ. Хи-квадрат распределение.\n\n    Занятие 12\n    \n        📄 Презентация\n    \n    \n        \n    \n    Точечные оценки.\n\n    Занятие 13\n    \n        📄 Презентация\n    \n    \n        \n    \n    Точечные оценки. Метод моментов. Интервальные оценки I.\n\n    Занятие 14\n    \n        📄 Презентация\n    \n    \n        \n    \n    Интервальные оценки II. Интервалы для одного параметра. Распределение Стьюдента.\n\n    Занятие 15\n    \n        📄 Презентация\n    \n    \n        \n    \n    Интервальные оценки II. Интервалы для разности параметров.\n\n    Занятие 16\n    \n        📄 Презентация\n    \n    \n        \n    \n    Тестирование статистических гипотез I.\n\n    Занятие 17\n    \n        📄 Презентация\n    \n    \n        \n    \n    Тестирование статистических гипотез II.\n\n    Занятие 18\n    \n        📄 Презентация\n    \n    \n        \n    \n    Тестирование статистических гипотез III. Начала линейной регрессии.\n\nNo matching items"
+    "text": "Course materials\n\nStatistics course program\nHome Assignments\n\n * External materials"
   },
   {
     "objectID": "archive/ptms_bi_hse_25/notebooks/sampling_distribution.html",
@@ -544,19 +565,5 @@
     "title": "",
     "section": "",
     "text": "CodeShow All CodeHide All Code\n\n\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import chi2, t, norm\n\n\n\n\nCode\nplt.figure(figsize=(15,10))\nx = np.arange(0, 20, 0.001)\n\nfor i in range(3, 10):\n    plt.plot(x, chi2.pdf(x, df=i), label='df: {}'.format(i))\nplt.rc('legend', fontsize=15)\nplt.legend(title='Parameters')\n\nplt.ylabel('Density',fontsize=20)\nplt.xlabel('x', fontsize=20)\nplt.title('Chi-Square Distributions', fontsize=20)\nplt.savefig(\"chi_square_density.pdf\")\n\n\n\n\nCode\nplt.figure(figsize=(12,8))\nx = np.arange(-5, 5, 0.001)\n\nfor i in range(1,8):\n    plt.plot(x, t.pdf(x, df=i), label='df: {}'.format(i))\n    \nplt.rc('legend', fontsize=20)\nplt.legend(title='Parameters', title_fontsize=15)\n\nplt.ylabel('Density',fontsize=20)\nplt.xlabel('x', fontsize=20)\nplt.title('Student t-distributions', fontsize=20)\nplt.grid(True)\nplt.tight_layout()\nplt.savefig(\"t_density.pdf\")\n\n\n\n\nCode\nplt.figure(figsize=(15,10))\nd_f = 2\nplt.plot(x, t.pdf(x, df= d_f), label='df: {}'.format(d_f))\nplt.plot(x, norm.pdf(x), label='Z')    \nplt.legend(title='Parameters')\n\nplt.ylabel('Density')\nplt.xlabel('x')\nplt.title('Student t-distribution vs Standard Normal', fontsize=14)\n\n\n\n\nCode\nplt.figure(figsize=(12,8))\nd_f = 100\nplt.plot(x, t.pdf(x, df= d_f), label='t-distribution, df: {}'.format(d_f))\n\nplt.plot(x, norm.pdf(x), label='Standard Normal')  \n\nd_f = 2\nplt.plot(x, t.pdf(x, df= d_f), label='t-distribution, df: {}'.format(d_f))\n\nplt.rc('legend', fontsize=15)\nplt.legend()\n\nplt.ylabel('Density',fontsize=20)\nplt.xlabel('x', fontsize=20)\nplt.title('Student t-distribution vs Standard Normal', fontsize=20)\nplt.grid(True)\nplt.tight_layout()\nplt.savefig(\"t_limit_z.pdf\")"
-  },
-  {
-    "objectID": "index.html#section",
-    "href": "index.html#section",
-    "title": "Archive",
-    "section": "2025",
-    "text": "2025\n\nHSE BI Courses\n\nProbability and Mathematical Statistics 2025\n\n\n\nHSE FCS Courses\n\nLinear Algebra 2025"
-  },
-  {
-    "objectID": "index.html#hse-mdi-courses",
-    "href": "index.html#hse-mdi-courses",
-    "title": "Archive",
-    "section": "2022 HSE MDI Courses",
-    "text": "2022 HSE MDI Courses\n\nMathematical Statistics 2022\nProbability Theory 2022"
   }
 ]
