@@ -8,7 +8,7 @@ Welcome to my teaching materials repository. Here you can find materials from my
 
 These courses are currently being taught and materials are updated regularly:
 
-- **[Probability Theory and Mathematical Statistics](https://glebkarpov.com/ptms_gsb_26/)** - HSE GSB, BI / DPM / DATiB, Autumn 2026.
+- **[Probability Theory and Mathematical Statistics](https://ptms-gsb.edu.glebkarpov.com/)** - HSE GSB, BI / DPM / DATiB, Autumn 2026.
 
 ## Archive
 
